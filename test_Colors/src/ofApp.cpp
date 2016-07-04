@@ -13,16 +13,16 @@ void ofApp::setup() {
     
     image.load("images/stones.jpg");
     shader.load("shaders/colors");
+    
+    gui.add(size.set("size",3.3, 0.0, 5.0));
     buffer.allocate(ofGetScreenWidth(), ofGetScreenHeight());
 }
 
 void ofApp::draw() {
-//    plot(drawBins, -plotHeight, plotHeight / 2);
-    cout<<getAverageVolume(drawBins)<<endl;
     shader.begin();
-    shader.setUniform1f("time", ofGetElapsedTimef());
+    shader.setUniform1f("time", ofGetElapsedTimef()*size);
     shader.setUniform2f("resolution", ofVec2f(ofGetWidth(), ofGetHeight()));
-    shader.setUniform1f("size", ofMap(getAverageVolume(drawBins), 0, 0.01, 256.0, 16.0, true));
+    shader.setUniform1f("size", size);
     image.draw(0, 0, ofGetWidth(), ofGetHeight());
     shader.end();
     ofxAudioVisualApp::draw();

@@ -25,12 +25,14 @@ void ofApp::setup() {
 void ofApp::draw() {
     for(int i = 0; i < drawBins.size(); i++) {
         ofVec3f vertex = mesh.getVertex(i);
-        float newHeight = ofMap(drawBins[i], 0.0, 0.01, 0, ofGetHeight()/2, true);
+        float newHeight = ofMap(drawBins[i], 0.0, 0.1, 0, ofGetHeight()/2, true);
         mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }
     yOffset += 10;
     if(yOffset > ofGetHeight()) {
         yOffset = 0;
+        ofSetColor(0);
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     }
     
     ofSetColor(255);

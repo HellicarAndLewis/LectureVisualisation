@@ -7,8 +7,8 @@ uniform vec2 resolution;
 uniform float size;
 
 float makePoint(float x,float y,float fx,float fy,float sx,float sy,float t){
-   float xx=x+sin(t*fx)*sx;
-   float yy=y+cos(t*fy)*sy;
+   float xx=x+sin(t*(fx))*(sx);
+   float yy=y+cos(t*(fy))*(sy);
    return 1.0/sqrt(xx*xx+yy*yy);
 }
 
@@ -16,7 +16,7 @@ void main() {
     vec2 p = (gl_TexCoord[0].xy/resolution.x)*2.0-vec2(1.0, resolution.y/resolution.x);
 
     p *= 2.0;
-
+    
    float x=p.x;
    float y=p.y;
 
@@ -53,7 +53,7 @@ void main() {
    c=c+makePoint(x,y,0.2,0.6,0.6,0.3,time);
    c=c+makePoint(x,y,1.3,0.5,0.5,0.4,time);
    
-   vec3 d=vec3(a,b,c) / size;
+   vec3 d=vec3(a,b,c) / 16;
    
    //fragColor = vec4(d.x,d.y,d.z,1.0);
 

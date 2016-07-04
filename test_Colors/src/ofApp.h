@@ -16,6 +16,7 @@ public:
     void setup();
     void draw();
     
+    ofParameter<float> size;
     ofShader shader;
     ofImage image;
     ofFbo buffer;
