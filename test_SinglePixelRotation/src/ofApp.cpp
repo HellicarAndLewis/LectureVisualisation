@@ -20,11 +20,43 @@ void ofApp::setup() {
 	// [bins] samples per buffer
 	// 4 num buffers (latency)
     
-    sampleImage.load("images/stones.jpg");
-    samplePixels = sampleImage.getPixels();
+    soundPlayer = new ofSoundPlayer();
+    soundPlayer->load("sounds/Lecture1.wav");
+    // soundPlayer->play();
+    soundPlayer->setLoop(OF_LOOP_NORMAL);
+    soundPlayer->setVolume(1.0);
+    
+    settings.add(sampleHeight.set("Sample Height", sampleImage.getHeight()/2, 0, sampleImage.getHeight()));
+    settings.add(outputOn.set("Output On", false));
     
     gui.setup("settings/settings.xml");
-    gui.add(sampleHeight.set("Sample Height", sampleImage.getHeight()/2, 0, sampleImage.getHeight()));
+    gui.add(settings);
+    
+    ofxNestedFileLoader loader;
+    
+    vector<string> soundPaths = loader.load("sounds");
+    
+    for(int i = 0; i < soundPaths.size(); i++) {
+        vector<string> tempPath = ofSplitString(soundPaths[i], "/");
+        string nameWithExtension = tempPath[tempPath.size()-1];
+        vector<string> tempName = ofSplitString(nameWithExtension, ".");
+        if(tempName.size() == 2) {
+            ofParameter<bool>* clip;
+            clip = new ofParameter<bool>;
+            clip->set(tempName[0], false);
+            soundClips[tempName[0]] = soundPaths[i];
+            clips.add(*clip);
+            
+        } else {
+            ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
+        }
+    }
+    
+    gui.add(clips);
+    
+    ofAddListener(clips.parameterChangedE(), this, &ofApp::onClipChanged);
+    
+    ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
 	
 	ofSoundStreamSetup(0, 1, this, 44100, bufferSize, 4);
 	
@@ -34,14 +66,37 @@ void ofApp::setup() {
     ofSetLineWidth(2);
 }
 
+void ofApp::update() {
+    int nBandsToGet = fft->getBinSize();
+    float * val = ofSoundGetSpectrum(nBandsToGet);		// request 128 values for fft
+    for (int i = 0;i < nBandsToGet; i++){
+        // let the smoothed value sink to zero:
+        drawBins[i] *= 0.96f;
+    }
+    
+    if (outputOn) {
+        for (int i = 0;i < nBandsToGet; i++){
+            // take the max, either the smoothed or the incoming:
+            if (drawBins[i] < val[i]) drawBins[i] = val[i];
+        }
+    } else {
+        soundMutex.lock();
+        for (int i = 0;i < nBandsToGet; i++){
+            // take the max, either the smoothed or the incoming:
+            if (drawBins[i] < middleBins[i]) drawBins[i] = middleBins[i];
+        }
+        soundMutex.unlock();
+    }
+}
+
 void ofApp::draw() {
 	ofSetColor(255);
 	ofPushMatrix();
 	ofTranslate(16, 16);
 	
-	soundMutex.lock();
-	drawBins = middleBins;
-	soundMutex.unlock();
+//	soundMutex.lock();
+//	drawBins = middleBins;
+//	soundMutex.unlock();
 	
 	ofDrawBitmapString("Frequency Domain", 0, 0);
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
@@ -50,7 +105,8 @@ void ofApp::draw() {
     ofRotate(rotation, 0, 0, 1);
     float averageVolume = getAverageVolume(drawBins);
     float height = ofMap(averageVolume, 0, 0.1, 0, ofGetHeight());//getAverageVolume(drawBins);
-    ofSetColor(ofMap(height, 0, ofGetHeight()/2, 0, 255));
+    ofSetColor(255);
+    //ofSetColor(ofMap(height, 0, ofGetHeight()/2, 0, 255));
     ofDrawCircle(0, height, 1, 1);
 	//plot(drawBins, -plotHeight, plotHeight / 2);
 	ofPopMatrix();
@@ -80,7 +136,7 @@ void ofApp::plot(vector<float>& buffer, float scale, float offset) {
     samplePixels = sampleImage.getPixels();
     ofColor col;
 	for (int i = 0; i < n; i ++) {
-        col = samplePixels.getColor(i/n * samplePixels.getWidth(), sampleHeight);
+        col = ofColor(255);// samplePixels.getColor(i/n * samplePixels.getWidth(), sampleHeight);
         ofSetColor(col);
 		ofDrawLine(i, 0, i, sqrt(buffer[i]) * scale);
 	}
@@ -117,4 +173,31 @@ void ofApp::audioReceived(float* input, int bufferSize, int nChannels) {
 	soundMutex.lock();
 	middleBins = audioBins;
 	soundMutex.unlock();
+}
+
+void ofApp::onSettingChanged(ofAbstractParameter &p) {
+    string name = p.getName();
+    if(name == "Output On") {
+        if(outputOn) {
+            soundPlayer->play();
+        } else {
+            soundPlayer->stop();
+        }
+    }
+}
+
+void ofApp::onClipChanged(ofAbstractParameter &p) {
+    string clipName = soundClips[p.getName()];
+    if(soundPlayer->isPlaying()) {
+        soundPlayer->stop();
+    }
+    soundPlayer->load(clipName);
+    if(outputOn) {
+        soundPlayer->play();
+    }
+}
+
+
+void ofApp::exit() {
+    ofSoundStreamClose();
 }

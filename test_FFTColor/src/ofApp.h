@@ -1,26 +1,9 @@
 #pragma once
 
-#include "ofMain.h"
-#include "ofxFft.h"
-#include "ofxGui.h"
+#include "ofxAudioVisualApp.h"
 
-class ofApp : public ofBaseApp {
+
+class ofApp : public ofxAudioVisualApp {
 public:
-	void setup();
-	void plot(vector<float>& buffer, float scale, float offset);
-	void audioReceived(float* input, int bufferSize, int nChannels);
-	void draw();
-
-	int plotHeight, bufferSize;
-    
-    ofImage sampleImage;
-    ofPixels samplePixels;
-    
-    ofxPanel gui;
-    ofParameter<int> sampleHeight;
-
-	ofxFft* fft;
-	
-	ofMutex soundMutex;
-	vector<float> drawBins, middleBins, audioBins;
+    void draw();
 };

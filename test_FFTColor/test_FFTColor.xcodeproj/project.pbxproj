@@ -18,6 +18,7 @@
 		14EFECD21D198BAB0001C92F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECC81D198BAB0001C92F /* ofxSliderGroup.cpp */; };
 		14EFECD31D198BAB0001C92F /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECCA1D198BAB0001C92F /* ofxToggle.cpp */; };
 		14EFECD81D198D0B0001C92F /* ofxNestedFileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECD61D198D0B0001C92F /* ofxNestedFileLoader.cpp */; };
+		14F2D2CE1D2A75BC008556D8 /* ofxAudioVisualApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14F2D2CC1D2A75BC008556D8 /* ofxAudioVisualApp.cpp */; };
 		29938E05AF78B3DF7A591187 /* ofxFftw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F353204A917F4B2BCEEABE6 /* ofxFftw.cpp */; };
 		47741AD4D543009E4DF29CEA /* ofxProcessFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 971B530AB93ACC5065D9489E /* ofxProcessFFT.cpp */; };
 		6DB9E3911BA6216FE1F0E91C /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = DACFE8C08D7F4619176E65D7 /* kiss_fftr.c */; };
@@ -77,6 +78,8 @@
 		14EFECCB1D198BAB0001C92F /* ofxToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxToggle.h; sourceTree = "<group>"; };
 		14EFECD61D198D0B0001C92F /* ofxNestedFileLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxNestedFileLoader.cpp; sourceTree = "<group>"; };
 		14EFECD71D198D0B0001C92F /* ofxNestedFileLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxNestedFileLoader.h; sourceTree = "<group>"; };
+		14F2D2CC1D2A75BC008556D8 /* ofxAudioVisualApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAudioVisualApp.cpp; sourceTree = "<group>"; };
+		14F2D2CD1D2A75BC008556D8 /* ofxAudioVisualApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAudioVisualApp.h; sourceTree = "<group>"; };
 		1CBD6F883000C78087DD5738 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = _kiss_fft_guts.h; path = ../../../addons/ofxFft/libs/kiss/_kiss_fft_guts.h; sourceTree = SOURCE_ROOT; };
 		2D0C0AA4436B2A16530BA991 /* fftw3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fftw3.h; path = ../../../addons/ofxFft/libs/fftw/include/fftw3.h; sourceTree = SOURCE_ROOT; };
 		32CA89CD22339F4F9433CAF6 /* ofxFft.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFft.cpp; path = ../../../addons/ofxFft/src/ofxFft.cpp; sourceTree = SOURCE_ROOT; };
@@ -183,6 +186,24 @@
 			path = ../../../addons/ofxNestedFileLoader/src;
 			sourceTree = "<group>";
 		};
+		14F2D2CA1D2A75BC008556D8 /* ofxAudioVisualApp */ = {
+			isa = PBXGroup;
+			children = (
+				14F2D2CB1D2A75BC008556D8 /* src */,
+			);
+			name = ofxAudioVisualApp;
+			sourceTree = "<group>";
+		};
+		14F2D2CB1D2A75BC008556D8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				14F2D2CC1D2A75BC008556D8 /* ofxAudioVisualApp.cpp */,
+				14F2D2CD1D2A75BC008556D8 /* ofxAudioVisualApp.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxAudioVisualApp/src;
+			sourceTree = "<group>";
+		};
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +246,7 @@
 				BBC2B4228932C2AACC6701CF /* ofxFft */,
 				14EFECB91D198BAB0001C92F /* ofxGui */,
 				14EFECD41D198D0B0001C92F /* ofxNestedFileLoader */,
+				14F2D2CA1D2A75BC008556D8 /* ofxAudioVisualApp */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -390,6 +412,7 @@
 				14EFECD21D198BAB0001C92F /* ofxSliderGroup.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				14EFECCF1D198BAB0001C92F /* ofxLabel.cpp in Sources */,
+				14F2D2CE1D2A75BC008556D8 /* ofxAudioVisualApp.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				14EFECCD1D198BAB0001C92F /* ofxButton.cpp in Sources */,
 				14EFECD01D198BAB0001C92F /* ofxPanel.cpp in Sources */,
