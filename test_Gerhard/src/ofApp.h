@@ -6,6 +6,6 @@ class ofApp : public ofxAudioVisualApp {
 public:
     void setup();
 	void draw();
-    
+
     float x;
 };

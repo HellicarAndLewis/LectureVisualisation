@@ -15,6 +15,7 @@ void ofApp::setup() {
     float y = ofGetHeight()/2;
     for(int i = 0; i < fft->getBinSize(); i++) {
         mesh.addVertex(ofVec3f(x, y, 0));
+        mesh.addColor(ofColor(255));
         x += ofGetScreenWidth()/fft->getBinSize()*2;
     }
     yOffset = 10;
@@ -26,6 +27,8 @@ void ofApp::draw() {
     for(int i = 0; i < drawBins.size(); i++) {
         ofVec3f vertex = mesh.getVertex(i);
         float newHeight = ofMap(drawBins[i], 0.0, 0.1, 0, ofGetHeight()/2, true);
+        ofColor col = ofxAudioVisualApp::setColorLerp(i);
+        mesh.setColor(i, col);
         mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }
     yOffset += 10;

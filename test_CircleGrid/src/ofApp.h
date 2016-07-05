@@ -12,4 +12,6 @@ public:
     ofParameter<float> spiralRadius;
     
     float theta;
+    
+    float xPosition, yPosition;
 };
