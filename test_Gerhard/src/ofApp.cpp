@@ -10,7 +10,8 @@ void ofApp::draw() {
 
     ofPushMatrix();
     for(int i = 0; i < drawBins.size(); i++) {
-        ofxAudioVisualApp::setColorLerp(i);
+        ofColor col = ofxAudioVisualApp::getColorFromSpectrum(i);
+        ofSetColor(col);
         ofDrawCircle(x, ofMap(i, 0, drawBins.size(), 0, ofGetHeight()), 2);
     }
     ofPopMatrix();
