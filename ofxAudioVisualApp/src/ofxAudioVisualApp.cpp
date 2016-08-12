@@ -21,7 +21,7 @@ void ofxAudioVisualApp::setup() {
 	// 4 num buffers (latency)
     
     soundPlayer = new ofSoundPlayer();
-    soundPlayer->load("sounds/Lecture1.wav");
+    //soundPlayer->load("sounds/Lecture1.wav");
     soundPlayer->setLoop(OF_LOOP_NORMAL);
     soundPlayer->setVolume(1.0);
     
@@ -29,7 +29,7 @@ void ofxAudioVisualApp::setup() {
     settings.add(outputOn.set("Output On", false));
     settings.add(play.set("Play!", false));
     settings.add(backgroundRefresh.set("Background Auto", false));
-    settings.add(exposure.set("Exposure (sec)", 300, 1, 600));
+    settings.add(exposure.set("Duration Percentage", 1.0, 0.0, 10.0));
     settings.add(colHigh.set("High", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
@@ -39,7 +39,8 @@ void ofxAudioVisualApp::setup() {
     
     ofxNestedFileLoader loader;
     
-    vector<string> soundPaths = loader.load("sounds");
+    ofSetDataPathRoot("../../../../../SharedData/");
+    vector<string> soundPaths = loader.load("lectures");
     
     for(int i = 0; i < soundPaths.size(); i++) {
         vector<string> tempPath = ofSplitString(soundPaths[i], "/");
@@ -56,6 +57,14 @@ void ofxAudioVisualApp::setup() {
             ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
         }
     }
+    
+    if(soundPaths.size()) {
+        soundPlayer->load(soundPaths[0]);
+    } else {
+        ofLogError("No Lectures Loaded");
+    }
+
+    
     
     loader.clearPaths();
     
@@ -76,6 +85,12 @@ void ofxAudioVisualApp::setup() {
         } else {
             ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
         }
+    }
+    
+    if(spectrumPaths.size()) {
+        spectrum.load(spectra.begin()->second);
+    } else {
+        ofLogError("No Spectra Loaded");
     }
     
     //spectrum.load(spectra["rainbow"]);
@@ -200,12 +215,12 @@ void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
     if(name == "Play!") {
         ofClear(0);
         if(outputOn) {
-            soundPlayer->play();
-            soundPlayer->setPosition(0.5f);
-            int sampleDuration = 2*soundPlayer->getPositionMS();
-            sampleDuration /= 0.001;
-            soundPlayer->setPosition(0.0);
-            soundPlayer->setSpeed(sampleDuration / exposure);
+//            soundPlayer->play();
+//            soundPlayer->setPosition(0.5f);
+//            int sampleDuration = 2*soundPlayer->getPositionMS();
+//            sampleDuration /= 0.001;
+//            soundPlayer->setPosition(0.0);
+            soundPlayer->setSpeed(exposure);
             soundPlayer->stop();
             soundPlayer->play();
             ofHideCursor();

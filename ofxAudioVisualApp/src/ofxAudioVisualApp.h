@@ -35,7 +35,7 @@ public:
     ofParameter<bool> outputOn;
     ofParameter<bool> backgroundRefresh;
     ofParameter<bool> play;
-    ofParameter<int> exposure;
+    ofParameter<float> exposure;
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
