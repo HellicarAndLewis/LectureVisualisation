@@ -11,6 +11,9 @@ void ofApp::draw() {
     int j = 0;
     int step = 1024 / numBins;
     for(int i = 0; i < drawBins.size() - step; i += step) {
+        if (isinf(halfBins[j])){
+            halfBins[j] = 0;
+        }
         for(int k = 0; k < step; k++) {
             halfBins[j] += drawBins[k];
         }
