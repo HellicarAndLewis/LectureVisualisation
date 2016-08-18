@@ -27,7 +27,8 @@ void ofApp::draw() {
     for(int i = 0; i < drawBins.size(); i++) {
         ofVec3f vertex = mesh.getVertex(i);
         float newHeight = ofMap(drawBins[i], 0.0, 0.1, 0, ofGetHeight()/2, true);
-        ofColor col = ofxAudioVisualApp::setColorLerp(i);
+//        ofColor col = ofxAudioVisualApp::setColorLerp(i); // Changed on shoot day 18/8/2016
+        ofColor col = ofxAudioVisualApp::getColor(i);
         mesh.setColor(i, col);
         mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }

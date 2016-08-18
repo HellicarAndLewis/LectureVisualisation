@@ -16,8 +16,9 @@ public:
     
     void onClipChanged(ofAbstractParameter &p);
     float getAverageVolume(vector<float>& buffer);
-    ofColor setColorLerp(int i);
+    ofColor getColorLerp(int i);
     ofColor getColorFromSpectrum(int i);
+    ofColor getColor(int i);
     
     void update();
 	void draw();
@@ -39,6 +40,7 @@ public:
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
+    ofParameter<bool> usePalette;
     
     bool drawGui;
     

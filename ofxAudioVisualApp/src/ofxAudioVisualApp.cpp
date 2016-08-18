@@ -32,6 +32,7 @@ void ofxAudioVisualApp::setup() {
     settings.add(exposure.set("Duration Percentage", 1.0, 0.0, 10.0));
     settings.add(colHigh.set("High", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
+    settings.add(usePalette.set("Use palette", false));
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
     
     gui.setup("settings/settings.xml");
@@ -268,10 +269,10 @@ void ofxAudioVisualApp::keyPressed(int key) {
     }
 }
 
-ofColor ofxAudioVisualApp::setColorLerp(int i) {
+ofColor ofxAudioVisualApp::getColorLerp(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
     ofColor inBetween = colLow.get().getLerped(colHigh.get(), percent);
-    ofSetColor(inBetween);
+//    ofSetColor(inBetween);
     return inBetween;
 }
 
@@ -279,6 +280,14 @@ ofColor ofxAudioVisualApp::getColorFromSpectrum(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
     ofColor inBetween = spectrum.getColor(ofMap(percent, 0, 1, 0, spectrum.getWidth()-1, true), (int)ofMap(spectrumY, 0, 100, 0, spectrum.getHeight()-1, true));
     return inBetween;
+}
+
+ofColor ofxAudioVisualApp::getColor(int i){
+    if (usePalette){
+        return getColorFromSpectrum(i);
+    }else{
+        return getColorLerp(i);
+    }
 }
 
 

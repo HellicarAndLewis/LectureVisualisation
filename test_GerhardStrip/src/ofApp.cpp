@@ -24,9 +24,8 @@ void ofApp::draw() {
     for(int i = 0; i < drawBins.size() * (0.1/symmetryFactor); i++) {
         ofColor col;
         if(drawBins[i] > threshold){
-//            col = ofxAudioVisualApp::getColorFromSpectrum(i); // changed on shoot day
-            col = ofxAudioVisualApp::setColorLerp(i)
-            ;
+//            col = ofxAudioVisualApp::getColorFromSpectrum(i); // changed on shoot day 18/8/2016
+            col = ofxAudioVisualApp::getColor(i);
         }else{
             col = (0,0,0);
         }
