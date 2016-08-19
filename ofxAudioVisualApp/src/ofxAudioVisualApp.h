@@ -7,6 +7,7 @@
 
 class ofxAudioVisualApp : public ofBaseApp {
 public:
+    // App
 	void setup();
 	void plot(vector<float>& buffer, float scale, float offset);
 	void audioReceived(float* input, int bufferSize, int nChannels);
@@ -29,7 +30,21 @@ public:
     ofImage sampleImage;
     ofPixels samplePixels;
     
-    ofxPanel gui;
+    ofImage spectrum;
+    
+    ofSoundPlayer* soundPlayer;
+    
+    ofxFft* fft;
+    
+    ofMutex soundMutex;
+    vector<float> drawBins, middleBins, audioBins;
+    
+ 
+    // GUI
+    void setupGui();
+    void drawGui(ofEventArgs & args);
+    
+    ofxPanel gui, gui2;
     ofParameter<int> sampleHeight;
     
     ofParameterGroup settings;
@@ -42,20 +57,9 @@ public:
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
     
-    bool drawGui;
-    
     ofParameterGroup clips;
     map< string, string > soundClips;
     
     ofParameterGroup spectrumGroup;
     map< string, string > spectra;
-    
-    ofImage spectrum;
-    
-    ofSoundPlayer* soundPlayer;
-
-	ofxFft* fft;
-	
-	ofMutex soundMutex;
-	vector<float> drawBins, middleBins, audioBins;
 };

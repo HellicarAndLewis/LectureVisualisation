@@ -1,5 +1,7 @@
 #include "ofxAudioVisualApp.h"
 
+//----------------------- App -----------------------------------------------
+
 void ofxAudioVisualApp::setup() {
 	ofSetVerticalSync(true);
 	
@@ -24,19 +26,6 @@ void ofxAudioVisualApp::setup() {
     //soundPlayer->load("sounds/Lecture1.wav");
     soundPlayer->setLoop(OF_LOOP_NORMAL);
     soundPlayer->setVolume(1.0);
-    
-    settings.add(sampleHeight.set("Sample Height", sampleImage.getHeight()/2, 0, sampleImage.getHeight()));
-    settings.add(outputOn.set("Output On", false));
-    settings.add(play.set("Play!", false));
-    settings.add(backgroundRefresh.set("Background Auto", false));
-    settings.add(exposure.set("Duration Percentage", 1.0, 0.0, 10.0));
-    settings.add(colHigh.set("High", ofColor(255)));
-    settings.add(colLow.set("Low", ofColor(0)));
-    settings.add(usePalette.set("Use palette", false));
-    settings.add(spectrumY.set("Sample Y", 0, 0, 100));
-    
-    gui.setup("settings/settings.xml");
-    gui.add(settings);
     
     ofxNestedFileLoader loader;
     
@@ -94,12 +83,9 @@ void ofxAudioVisualApp::setup() {
         ofLogError("No Spectra Loaded");
     }
     
-    //spectrum.load(spectra["rainbow"]);
-    
     gui.add(clips);
     gui.add(spectrumGroup);
     
-    drawGui = true;
     
     ofAddListener(clips.parameterChangedE(), this, &ofxAudioVisualApp::onClipChanged);
     
@@ -108,7 +94,7 @@ void ofxAudioVisualApp::setup() {
     ofAddListener(settings.parameterChangedE(), this, &ofxAudioVisualApp::onSettingChanged);
 	
 	ofBackground(0, 0, 0);
-    ofSetBackgroundAuto(backgroundRefresh);
+    ofSetBackgroundAuto(false);
     
     ofSetLineWidth(2);
 }
@@ -137,11 +123,47 @@ void ofxAudioVisualApp::update() {
 }
 
 void ofxAudioVisualApp::draw() {
-    if(drawGui) {
-        gui.draw();
-        ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() - 100, ofGetHeight() - 20);
+    
+    if (backgroundRefresh){
+        ofPushStyle();
+        ofSetColor(0);
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+        ofPopStyle();
     }
+    
 }
+
+//----------------------- GUI -----------------------------------------------
+
+void ofxAudioVisualApp::setupGui(){
+    settings.add(sampleHeight.set("Sample Height", sampleImage.getHeight()/2, 0, sampleImage.getHeight()));
+    settings.add(outputOn.set("Output On", false));
+    settings.add(play.set("Play!", false));
+    settings.add(backgroundRefresh.set("Background Auto", false));
+    settings.add(exposure.set("Duration Percentage", 1.0, 0.0, 10.0));
+    settings.add(colHigh.set("High", ofColor(255)));
+    settings.add(colLow.set("Low", ofColor(0)));
+    settings.add(usePalette.set("Use palette", false));
+    settings.add(spectrumY.set("Sample Y", 0, 0, 100));
+    
+    gui.setup("Main");
+    gui.add(settings);
+    
+    gui2.setup();
+    gui2.setPosition(230, 10);
+}
+
+void ofxAudioVisualApp::drawGui(ofEventArgs & args){
+    ofBackground(50);
+    gui.draw();
+    
+    gui2.draw();
+    
+    ofDrawBitmapString(ofGetTimestampString("%Y/%m/%d  %Z %H:%M:%S"), 20, ofGetHeight() - 20);
+    ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() - 100, ofGetHeight() - 20);
+}
+
+//---------------------------------------------------------------------------
 
 float ofxAudioVisualApp::getAverageVolume(vector<float>& buffer) {
     float n = buffer.size();
@@ -224,18 +246,10 @@ void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
             soundPlayer->setSpeed(exposure);
             soundPlayer->stop();
             soundPlayer->play();
-            ofHideCursor();
+//            ofHideCursor();
             //soundPlayer->setVolume(0.0);
         }
-        ofSetFullscreen(true);
-        drawGui = false;
-    }
-    if(name == "Background Auto") {
-        if(backgroundRefresh) {
-            ofSetBackgroundAuto(true);
-        } else {
-            ofSetBackgroundAuto(false);
-        }
+//        ofSetFullscreen(true);
     }
 }
 
@@ -252,18 +266,15 @@ void ofxAudioVisualApp::onClipChanged(ofAbstractParameter &p) {
 
 void ofxAudioVisualApp::keyPressed(int key) {
     switch (key) {
-        case 'g':
-            drawGui = !drawGui;
-            break;
         case 'f':
             ofToggleFullscreen();
             break;
         case 'b':
-            ofSetBackgroundAuto(!ofGetBackgroundAuto());
+            backgroundRefresh = !backgroundRefresh;
             break;
-        case 'm':
-            ofShowCursor();
-            break;
+//        case 'm':
+//            ofShowCursor();
+//            break;
         default:
             break;
     }
