@@ -5,19 +5,51 @@
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     
-    x = 0;
-    
     ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
+    
+    isGerhard.set("Gerhard", true);
+    isGerhardStrip.set("Gerhard Strip", false);
+    isCircle.set("Circle", false);
+    isHistory.set("History", false);
+    
+    visGroup.push_back(&isGerhard);
+    visGroup.push_back(&isGerhardStrip);
+    visGroup.push_back(&isCircle);
+    visGroup.push_back(&isHistory);
+    
+    for (auto vis : visGroup){
+        visualizations.add(*vis);
+    }
+    
+    gui2.add(visualizations);
+    
+    ofAddListener(visualizations.parameterChangedE(), this, &ofApp::onVisualizationChanged);
+    
+    reset();
+    resetting = false;
     history.setup(fft);
 }
 
 void ofApp::draw() {
     ofxAudioVisualApp::draw();
-
-//    gerhard.draw(this, &drawBins, threshold, symmetrical);
-//    circle.draw(this, &drawBins, threshold);
-//    history.draw(this, &drawBins, threshold);
-    gStrip.draw(this, &drawBins, threshold, symmetrical);
+    
+    if (resetting){
+        ofPushStyle();
+        ofSetColor(0);
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+        ofPopStyle();
+        resetting = false;
+    }
+    
+    if (isGerhard){
+        gerhard.draw(this, &drawBins, threshold, symmetrical);
+    }else if (isCircle){
+        circle.draw(this, &drawBins, threshold);
+    }else if (isHistory){
+        history.draw(this, &drawBins, threshold);
+    }else if (isGerhardStrip){
+        gStrip.draw(this, &drawBins, threshold, symmetrical);
+    }
 }
 
 //----------------------- GUI -----------------------------------------------
@@ -48,7 +80,29 @@ void ofApp::keyPressed(int key) {
 void ofApp::onSettingChanged(ofAbstractParameter &p){
     string name = p.getName();
     if(name == "Play!") {
-        x = 0;
-        gerhard.x = 0;
+        reset();
     }
+}
+
+void ofApp::onVisualizationChanged(ofAbstractParameter &p){
+    string name = p.getName();
+    
+    for (int i = 0; i < visGroup.size(); i++){
+        if (visGroup[i]->getName() == name){
+            visGroup[i]->setWithoutEventNotifications(true);
+        }else{
+            visGroup[i]->setWithoutEventNotifications(false);
+        }
+    }
+    
+    reset();
+}
+
+void ofApp::reset(){
+    x = 0;
+    gerhard.x = 0;
+    circle.theta = -90;
+    gStrip.setXY(0, 0);
+    
+    resetting = true;
 }

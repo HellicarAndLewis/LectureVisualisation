@@ -35,3 +35,8 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
         }
     }
 }
+
+void GerhardStrip::setXY(float newX, float newY){
+    x = newX;
+    y = newY;
+}

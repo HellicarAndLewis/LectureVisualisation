@@ -12,6 +12,10 @@ public:
 	void draw();
     void keyPressed(int key);
     void onSettingChanged(ofAbstractParameter &p);
+    void onVisualizationChanged(ofAbstractParameter &p);
+    void reset();
+    
+    bool resetting;
 
     float x;
     
@@ -25,4 +29,12 @@ public:
     Circle circle;
     History history;
     GerhardStrip gStrip;
+    
+    ofParameterGroup visualizations;
+    ofParameter<bool> isGerhard;
+    ofParameter<bool> isCircle;
+    ofParameter<bool> isHistory;
+    ofParameter<bool> isGerhardStrip;
+    
+    vector< ofParameter<bool>* > visGroup;
 };
