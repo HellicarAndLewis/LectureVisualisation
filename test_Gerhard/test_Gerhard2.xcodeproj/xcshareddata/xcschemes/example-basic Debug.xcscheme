@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
             BuildableName = "test_GerhardDebug.app"
-            BlueprintName = "test_Gerhard"
-            ReferencedContainer = "container:test_Gerhard.xcodeproj">
+            BlueprintName = "test_Gerhard2"
+            ReferencedContainer = "container:test_Gerhard2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,8 +57,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
             BuildableName = "test_GerhardDebug.app"
-            BlueprintName = "test_Gerhard"
-            ReferencedContainer = "container:test_Gerhard.xcodeproj">
+            BlueprintName = "test_Gerhard2"
+            ReferencedContainer = "container:test_Gerhard2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

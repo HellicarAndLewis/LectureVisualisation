@@ -18,6 +18,9 @@ public:
     ofMesh mesh;
     
     int yOffset;
+    
+    void setupGui();
+    void drawGui(ofEventArgs & args);
 };
 
 #endif /* ofApp_hpp */

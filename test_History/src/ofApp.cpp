@@ -8,6 +8,8 @@
 
 #include "ofApp.h"
 
+//----------------------- App -----------------------------------------------
+
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
@@ -43,4 +45,14 @@ void ofApp::draw() {
     mesh.draw();
     
     ofxAudioVisualApp::draw();
+}
+
+//----------------------- GUI -----------------------------------------------
+
+void ofApp::setupGui(){
+    ofxAudioVisualApp::setupGui();
+}
+
+void ofApp::drawGui(ofEventArgs & args){
+    ofxAudioVisualApp::drawGui(args);
 }

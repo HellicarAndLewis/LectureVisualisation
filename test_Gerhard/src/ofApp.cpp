@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+//----------------------- App -----------------------------------------------
+
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     x = 0;
@@ -19,4 +21,14 @@ void ofApp::draw() {
     x += 1;
     if(x > ofGetWidth())
         x = 0;
+}
+
+//----------------------- GUI -----------------------------------------------
+
+void ofApp::setupGui(){
+    ofxAudioVisualApp::setupGui();
+}
+
+void ofApp::drawGui(ofEventArgs & args){
+    ofxAudioVisualApp::drawGui(args);
 }

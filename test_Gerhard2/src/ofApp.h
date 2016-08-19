@@ -11,6 +11,10 @@ public:
 
     float x;
     
+    
+    void setupGui();
+    void drawGui(ofEventArgs & args);
+    
     ofParameter<float> threshold;
     ofParameter<bool> symmetrical;
 };

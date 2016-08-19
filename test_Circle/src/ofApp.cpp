@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+//----------------------- App -----------------------------------------------
+
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     theta = -90;
@@ -19,4 +21,14 @@ void ofApp::draw() {
     theta += 0.1;
     
     ofxAudioVisualApp::draw();
+}
+
+//----------------------- GUI -----------------------------------------------
+
+void ofApp::setupGui(){
+    ofxAudioVisualApp::setupGui();
+}
+
+void ofApp::drawGui(ofEventArgs & args){
+    ofxAudioVisualApp::drawGui(args);
 }

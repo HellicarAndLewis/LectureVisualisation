@@ -2,8 +2,6 @@
 
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
-    gui.add(threshold.set("Threshold", 0.0038, 0, 0.009));
-    gui.add(symmetrical.set("Symmetrical", true));
     
     x = 0;
     y = 0;
@@ -24,7 +22,7 @@ void ofApp::draw() {
     for(int i = 0; i < drawBins.size() * (0.1/symmetryFactor); i++) {
         ofColor col;
         if(drawBins[i] > threshold){
-//            col = ofxAudioVisualApp::getColorFromSpectrum(i); // changed on shoot day 18/8/2016
+            // col = ofxAudioVisualApp::getColorFromSpectrum(i); // changed on shoot day 18/8/2016
             col = ofxAudioVisualApp::getColor(i);
         }else{
             col = (0,0,0);
@@ -50,6 +48,17 @@ void ofApp::draw() {
             y = 0;
         }
     }
+}
+
+void ofApp::setupGui() {
+    ofxAudioVisualApp::setupGui();
+    
+    gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
+    gui2.add(symmetrical.set("Symmetrical", true));
+}
+
+void ofApp::drawGui(ofEventArgs & args){
+    ofxAudioVisualApp::drawGui(args);
 }
 
 void ofApp::keyPressed(int key) {

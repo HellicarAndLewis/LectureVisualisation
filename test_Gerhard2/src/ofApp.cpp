@@ -1,9 +1,9 @@
 #include "ofApp.h"
 
+//----------------------- App -----------------------------------------------
+
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
-    gui.add(threshold.set("Threshold", 0.0038, 0, 0.009));
-    gui.add(symmetrical.set("Symmetrical", true));
     
     x = 0;
     
@@ -40,6 +40,19 @@ void ofApp::draw() {
     x += 1;
     if(x > ofGetWidth())
         x = 0;
+}
+
+//----------------------- GUI -----------------------------------------------
+
+void ofApp::setupGui(){
+    ofxAudioVisualApp::setupGui();
+    
+    gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
+    gui2.add(symmetrical.set("Symmetrical", true));
+}
+
+void ofApp::drawGui(ofEventArgs & args){
+    ofxAudioVisualApp::drawGui(args);
 }
 
 void ofApp::keyPressed(int key) {

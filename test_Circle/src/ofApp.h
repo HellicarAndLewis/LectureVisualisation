@@ -8,10 +8,12 @@
 
 class ofApp : public ofxAudioVisualApp {
 public:
-    
     void setup();
     //void update();
 	void draw();
     
     float theta;
+    
+    void setupGui();
+    void drawGui(ofEventArgs & args);
 };

@@ -8,4 +8,7 @@ public:
 	void draw();
 
     float x;
+    
+    void setupGui();
+    void drawGui(ofEventArgs & args);
 };

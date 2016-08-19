@@ -8,6 +8,9 @@ public:
 	void draw();
     void keyPressed(int key);
     void onSettingChanged(ofAbstractParameter &p);
+    
+    void setupGui();
+    void drawGui(ofEventArgs & args);
 
     float x, y;
     
