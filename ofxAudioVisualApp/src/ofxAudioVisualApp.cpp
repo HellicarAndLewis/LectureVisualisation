@@ -140,7 +140,8 @@ void ofxAudioVisualApp::setupGui(){
     settings.add(outputOn.set("Output On", false));
     settings.add(play.set("Play!", false));
     settings.add(backgroundRefresh.set("Background Auto", false));
-    settings.add(exposure.set("Duration Percentage", 1.0, 0.0, 10.0));
+    settings.add(exposure.set("Speed", 1.0, 0.0, 10.0));
+    settings.add(scrub.set("Scrub", 0, 0, 1));
     settings.add(colHigh.set("High", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
     settings.add(usePalette.set("Use palette", false));
@@ -238,18 +239,20 @@ void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
     if(name == "Play!") {
         ofClear(0);
         if(outputOn) {
-//            soundPlayer->play();
-//            soundPlayer->setPosition(0.5f);
-//            int sampleDuration = 2*soundPlayer->getPositionMS();
-//            sampleDuration /= 0.001;
-//            soundPlayer->setPosition(0.0);
             soundPlayer->setSpeed(exposure);
             soundPlayer->stop();
             soundPlayer->play();
-//            ofHideCursor();
-            //soundPlayer->setVolume(0.0);
+            soundPlayer->setPosition(scrub);
         }
 //        ofSetFullscreen(true);
+    }
+    
+    if(name == "Scrub"){
+        soundPlayer->setPosition(scrub);
+    }
+    
+    if(name == "Speed"){
+        soundPlayer->setSpeed(exposure);
     }
 }
 
@@ -272,9 +275,6 @@ void ofxAudioVisualApp::keyPressed(int key) {
         case 'b':
             backgroundRefresh = !backgroundRefresh;
             break;
-//        case 'm':
-//            ofShowCursor();
-//            break;
         default:
             break;
     }
@@ -283,7 +283,6 @@ void ofxAudioVisualApp::keyPressed(int key) {
 ofColor ofxAudioVisualApp::getColorLerp(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
     ofColor inBetween = colLow.get().getLerped(colHigh.get(), percent);
-//    ofSetColor(inBetween);
     return inBetween;
 }
 

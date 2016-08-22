@@ -56,6 +56,7 @@ public:
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
+    ofParameter<float> scrub;
     
     ofParameterGroup clips;
     map< string, string > soundClips;
