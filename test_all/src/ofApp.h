@@ -13,6 +13,7 @@ public:
     void keyPressed(int key);
     void onSettingChanged(ofAbstractParameter &p);
     void onVisualizationChanged(ofAbstractParameter &p);
+    void onBinSizeChanged(ofAbstractParameter &p);
     void reset();
     
     bool resetting;

@@ -24,6 +24,8 @@ void ofApp::setup() {
     gui2.add(visualizations);
     ofAddListener(visualizations.parameterChangedE(), this, &ofApp::onVisualizationChanged);
     
+    ofAddListener(startEndBin.parameterChangedE(), this, &ofApp::onBinSizeChanged);
+    
     reset();
     resetting = false;
     history.setup(fft);
@@ -92,6 +94,10 @@ void ofApp::onVisualizationChanged(ofAbstractParameter &p){
     }
     
     reset();
+}
+
+void ofApp::onBinSizeChanged(ofAbstractParameter &p){
+    history.resetMesh();
 }
 
 void ofApp::reset(){
