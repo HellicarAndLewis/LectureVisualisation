@@ -53,7 +53,6 @@ void ofxAudioVisualApp::setup() {
     } else {
         ofLogError("No Lectures Loaded");
     }
-
     
     
     loader.clearPaths();
@@ -83,19 +82,14 @@ void ofxAudioVisualApp::setup() {
         ofLogError("No Spectra Loaded");
     }
     
+    // These need the files to be loaded before adding to gui
     gui.add(clips);
     gui.add(spectrumGroup);
-    
-    
     ofAddListener(clips.parameterChangedE(), this, &ofxAudioVisualApp::onClipChanged);
-    
     ofAddListener(spectrumGroup.parameterChangedE(), this, &ofxAudioVisualApp::onSpectrumChanged);
-    
-    ofAddListener(settings.parameterChangedE(), this, &ofxAudioVisualApp::onSettingChanged);
 	
 	ofBackground(0, 0, 0);
     ofSetBackgroundAuto(false);
-    
     ofSetLineWidth(2);
 }
 
@@ -151,9 +145,18 @@ void ofxAudioVisualApp::setupGui(){
     
     gui.setup("Main");
     gui.add(settings);
+    ofAddListener(settings.parameterChangedE(), this, &ofxAudioVisualApp::onSettingChanged);
+
     
     gui2.setup();
     gui2.setPosition(230, 10);
+    
+    gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
+    gui2.add(symmetrical.set("Symmetrical", true));
+    
+    startEndBin.add(startBin.set("Start Bin", 0, 0, 1024));
+    startEndBin.add(endBin.set("End Bin", 1024, 0, 1024));
+    gui2.add(startEndBin);
 }
 
 void ofxAudioVisualApp::drawGui(ofEventArgs & args){

@@ -4,10 +4,20 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
     ofPushMatrix();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofRotate(theta, 0, 0, 1);
-    for(int i = 0; i < drawBins->size(); i++) {
+    
+    int binSize = app->endBin - app->startBin;
+    for(int i = app->startBin; i < app->endBin; i++) {
         ofSetColor(app->getColor(i));
-        ofDrawCircle(0, ofMap(i, 0, drawBins->size(), 0, 500), ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
+        ofDrawCircle(0, ofMap(i, app->startBin, binSize/8, 0, 500)/8, ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
+
     }
+    
+//    for(int i = 0; i < drawBins->size(); i++) {
+//        ofSetColor(app->getColor(i));
+//        ofDrawCircle(0, ofMap(i, 0, drawBins->size()/8, 0, 500)/8, ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
+//    }
+    
     ofPopMatrix();
+    
     theta += 0.1 * app->drawSpeed;
 }

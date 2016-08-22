@@ -54,6 +54,7 @@ public:
     ofParameter<float> exposure;
     ofParameter<float> scrub;
     ofParameter<float> drawSpeed;
+    
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
@@ -64,4 +65,12 @@ public:
     
     ofParameterGroup spectrumGroup;
     map< string, string > spectra;
+    
+    
+    ofParameter<float> threshold;
+    ofParameter<bool> symmetrical;
+
+    ofParameterGroup startEndBin;
+    ofParameter<int> startBin;
+    ofParameter<int> endBin;
 };

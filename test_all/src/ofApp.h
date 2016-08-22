@@ -22,9 +22,6 @@ public:
     void setupGui();
     void drawGui(ofEventArgs & args);
     
-    ofParameter<float> threshold;
-    ofParameter<bool> symmetrical;
-    
     Gerhard gerhard;
     Circle circle;
     History history;

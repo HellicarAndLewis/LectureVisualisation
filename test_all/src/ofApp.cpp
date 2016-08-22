@@ -22,7 +22,6 @@ void ofApp::setup() {
     }
     
     gui2.add(visualizations);
-    
     ofAddListener(visualizations.parameterChangedE(), this, &ofApp::onVisualizationChanged);
     
     reset();
@@ -56,9 +55,6 @@ void ofApp::draw() {
 
 void ofApp::setupGui(){
     ofxAudioVisualApp::setupGui();
-    
-    gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
-    gui2.add(symmetrical.set("Symmetrical", true));
 }
 
 void ofApp::drawGui(ofEventArgs & args){
