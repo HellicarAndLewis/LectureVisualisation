@@ -25,7 +25,7 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
     ofPopStyle();
     ofPopMatrix();
     
-    x += 1;
+    x += 1 * app->drawSpeed;
     if(x > ofGetWidth()) {
         x = 0;
         y++;

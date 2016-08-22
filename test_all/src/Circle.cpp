@@ -9,5 +9,5 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
         ofDrawCircle(0, ofMap(i, 0, drawBins->size(), 0, 500), ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
     }
     ofPopMatrix();
-    theta += 0.1;
+    theta += 0.1 * app->drawSpeed;
 }

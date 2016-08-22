@@ -20,7 +20,7 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
         mesh.setColor(i, col);
         mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }
-    yOffset += 10;
+    yOffset += 10 * app->drawSpeed;
     if(yOffset > ofGetHeight()) {
         yOffset = 0;
         ofSetColor(0);

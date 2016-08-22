@@ -52,11 +52,12 @@ public:
     ofParameter<bool> backgroundRefresh;
     ofParameter<bool> play;
     ofParameter<float> exposure;
+    ofParameter<float> scrub;
+    ofParameter<float> drawSpeed;
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
-    ofParameter<float> scrub;
     
     ofParameterGroup clips;
     map< string, string > soundClips;

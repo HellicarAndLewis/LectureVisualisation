@@ -142,6 +142,8 @@ void ofxAudioVisualApp::setupGui(){
     settings.add(backgroundRefresh.set("Background Auto", false));
     settings.add(exposure.set("Speed", 1.0, 0.0, 10.0));
     settings.add(scrub.set("Scrub", 0, 0, 1));
+    settings.add(drawSpeed.set("Draw Speed", 1, -5, 5));
+    
     settings.add(colHigh.set("High", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
     settings.add(usePalette.set("Use palette", false));
