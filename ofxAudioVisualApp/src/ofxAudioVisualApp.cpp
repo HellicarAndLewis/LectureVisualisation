@@ -154,7 +154,7 @@ void ofxAudioVisualApp::setupGui(){
     gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
     gui2.add(symmetrical.set("Symmetrical", true));
     
-    startEndBin.add(startBin.set("Start Bin", 0, 0, 1024));
+    startEndBin.add(startBin.set("Start Bin", 0, 0, 512));
     startEndBin.add(endBin.set("End Bin", 1024, 0, 1024));
     gui2.add(startEndBin);
 }
@@ -167,6 +167,20 @@ void ofxAudioVisualApp::drawGui(ofEventArgs & args){
     
     ofDrawBitmapString(ofGetTimestampString("%Y/%m/%d  %Z %H:%M:%S"), 20, ofGetHeight() - 20);
     ofDrawBitmapString(ofToString(ofGetFrameRate()), ofGetWidth() - 100, ofGetHeight() - 20);
+    
+    ofPushMatrix();
+    ofPushStyle();
+    
+    ofTranslate(ofGetWidth() - 270, ofGetHeight() - 270);
+    spectrum.update();
+    spectrum.draw(0, 0, 200, 200);
+    ofNoFill();
+    ofSetColor(255);
+    ofSetLineWidth(2);
+    ofDrawRectangle(0, ofMap(spectrumY, 0, 100, 0, 196), 200, 4);
+    
+    ofPopStyle();
+    ofPopMatrix();
 }
 
 //---------------------------------------------------------------------------
