@@ -7,9 +7,14 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
     
     int binSize = app->endBin - app->startBin;
     for(int i = app->startBin; i < app->endBin; i++) {
-        ofSetColor(app->getColor(i));
+        ofColor col;
+        if(drawBins->at(i) > threshold){
+            col = app->getColor(i);
+        }else{
+            col = (0,0,0);
+        }
+        ofSetColor(col);
         ofDrawCircle(0, ofMap(i, app->startBin, binSize/8, 0, 500)/8, ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
-
     }
     
 //    for(int i = 0; i < drawBins->size(); i++) {
