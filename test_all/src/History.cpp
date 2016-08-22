@@ -9,7 +9,7 @@ void History::setup(ofxFft* fft){
         mesh.addColor(ofColor(255));
         x += ofGetWidth()/fft->getBinSize()*2;
     }
-    yOffset = 10;
+    yOffset = 0;
 }
 
 void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
@@ -32,14 +32,19 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     
     yOffset += 10 * app->drawSpeed;
     
+    mesh.draw();
+    
+    ofPushStyle();
     if(yOffset > ofGetHeight()) {
         yOffset = 0;
         ofSetColor(0);
         ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    }else if(yOffset < 0){
+        yOffset = ofGetHeight() - 10;
+        ofSetColor(0);
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     }
-    
-    ofSetColor(255);
-    mesh.draw();
+    ofPopStyle();
 }
 
 void History::resetMesh(){
@@ -52,5 +57,5 @@ void History::resetMesh(){
         mesh.addColor(ofColor(255));
         x += ofGetWidth()/(float)binSize*4;
     }
-    yOffset = 10;
+    yOffset = 0;
 }

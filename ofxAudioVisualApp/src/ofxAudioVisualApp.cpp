@@ -105,12 +105,14 @@ void ofxAudioVisualApp::update() {
         for (int i = 0;i < nBandsToGet; i++){
             // take the max, either the smoothed or the incoming:
             if (drawBins[i] < val[i]) drawBins[i] = val[i];
+            drawBins[i] = ofClamp(drawBins[i], cutUp, cutDown);
         }
     } else {
         soundMutex.lock();
         for (int i = 0;i < nBandsToGet; i++){
             // take the max, either the smoothed or the incoming:
             if (drawBins[i] < middleBins[i]) drawBins[i] = middleBins[i];
+            drawBins[i] = ofClamp(drawBins[i], cutUp, cutDown);
         }
         soundMutex.unlock();
     }
@@ -157,6 +159,10 @@ void ofxAudioVisualApp::setupGui(){
     startEndBin.add(startBin.set("Start Bin", 0, 0, 512));
     startEndBin.add(endBin.set("End Bin", 1024, 0, 1024));
     gui2.add(startEndBin);
+    
+    cutUpDown.add(cutUp.set("Cut Up", 0, 0, 0.1));
+    cutUpDown.add(cutDown.set("Cut Down", 0.1, 0, 0.1));
+    gui2.add(cutUpDown);
 }
 
 void ofxAudioVisualApp::drawGui(ofEventArgs & args){

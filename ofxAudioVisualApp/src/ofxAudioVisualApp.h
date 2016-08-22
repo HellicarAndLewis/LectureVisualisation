@@ -73,4 +73,8 @@ public:
     ofParameterGroup startEndBin;
     ofParameter<int> startBin;
     ofParameter<int> endBin;
+    
+    ofParameterGroup cutUpDown;
+    ofParameter<float> cutUp;
+    ofParameter<float> cutDown;
 };
