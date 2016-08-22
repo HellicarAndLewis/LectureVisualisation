@@ -13,7 +13,7 @@ void History::setup(ofxFft* fft){
 }
 
 void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
-    binSize = app->endBin - app->startBin;
+    binSize = abs(app->endBin - app->startBin);
     for(int i = 0, j = app->startBin; i < binSize; i++, j++) {
         ofVec3f vertex = mesh.getVertex(i);
         float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight()/2, true);

@@ -4,8 +4,8 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     ofPushMatrix();
     ofPushStyle();
     
-    int binSize = app->endBin - app->startBin;
-    for(int i = app->startBin; i < app->endBin; i++){
+    int binSize = abs(app->endBin - app->startBin);
+    for(int i = app->startBin, j = 0; j < binSize; i++, j++){
         ofColor col;
         
         if(drawBins->at(i) > threshold){

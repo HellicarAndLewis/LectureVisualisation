@@ -7,8 +7,8 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
     ofPushStyle();
     ofTranslate(0, ofGetHeight() * 0.1 * y);
     
-    int binSize = app->endBin - app->startBin;
-    for(int i = app->startBin; i < app->endBin * (0.1/symmetryFactor); i++) {
+    int binSize = abs(app->endBin - app->startBin);
+    for(int i = app->startBin, j = 0; j < binSize * (0.1/symmetryFactor); i++, j++) {
         ofColor col;
         if(drawBins->at(i) > threshold){
             col = app->getColor(i);
@@ -18,10 +18,10 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
         
         ofSetColor(col);
         if(symmetrical){
-            ofDrawCircle(x, ofMap(i, app->startBin, binSize, 0, ofGetHeight()) + (ofGetHeight() * 0.05), 2);
-            ofDrawCircle(x, (ofGetHeight() * 0.05) - ofMap(i, app->startBin, binSize, 0, ofGetHeight()) , 2);
+            ofDrawCircle(x, ofMap(i, app->startBin, app->endBin, 0, ofGetHeight(), true) + (ofGetHeight() * 0.05), 2);
+            ofDrawCircle(x, (ofGetHeight() * 0.05) - ofMap(i, app->startBin, app->endBin, 0, ofGetHeight(), true) , 2);
         }else{
-            ofDrawCircle(x, ofMap(i, app->startBin, binSize, 0, ofGetHeight()), 2);
+            ofDrawCircle(x, ofMap(i, app->startBin, app->endBin, 0, ofGetHeight(), true), 2);
         }
     }
 
