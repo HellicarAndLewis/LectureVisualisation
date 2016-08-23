@@ -11,7 +11,5 @@ public:
     
     float x;
     
-    ofFbo fbo, fbo2;
-    
-    ofImage screen;
+    ofFbo fbo;
 };
