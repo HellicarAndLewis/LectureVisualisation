@@ -13,6 +13,7 @@
 		14E1F5881D6748B200D45B9C /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F5861D6748B200D45B9C /* Circle.cpp */; };
 		14E1F58C1D674BAB00D45B9C /* History.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F58A1D674BAB00D45B9C /* History.cpp */; };
 		14E1F5911D67512000D45B9C /* GerhardStrip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F58F1D67512000D45B9C /* GerhardStrip.cpp */; };
+		14E1F59D1D6B5D5A00D45B9C /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F59B1D6B5D5A00D45B9C /* Stream.cpp */; };
 		14EFECCC1D198BAB0001C92F /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECBB1D198BAB0001C92F /* ofxBaseGui.cpp */; };
 		14EFECCD1D198BAB0001C92F /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECBD1D198BAB0001C92F /* ofxButton.cpp */; };
 		14EFECCE1D198BAB0001C92F /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFECC01D198BAB0001C92F /* ofxGuiGroup.cpp */; };
@@ -71,6 +72,8 @@
 		14E1F58B1D674BAB00D45B9C /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		14E1F58F1D67512000D45B9C /* GerhardStrip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GerhardStrip.cpp; sourceTree = "<group>"; };
 		14E1F5901D67512000D45B9C /* GerhardStrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GerhardStrip.h; sourceTree = "<group>"; };
+		14E1F59B1D6B5D5A00D45B9C /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
+		14E1F59C1D6B5D5A00D45B9C /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
 		14EAD95E1D636E210039F73B /* test_allDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_allDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14EFECBB1D198BAB0001C92F /* ofxBaseGui.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBaseGui.cpp; sourceTree = "<group>"; };
 		14EFECBC1D198BAB0001C92F /* ofxBaseGui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxBaseGui.h; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				14E1F5901D67512000D45B9C /* GerhardStrip.h */,
 				14E1F58A1D674BAB00D45B9C /* History.cpp */,
 				14E1F58B1D674BAB00D45B9C /* History.h */,
+				14E1F59B1D6B5D5A00D45B9C /* Stream.cpp */,
+				14E1F59C1D6B5D5A00D45B9C /* Stream.h */,
 				14E1F5811D6740BC00D45B9C /* Gerhard.cpp */,
 				14E1F5821D6740BC00D45B9C /* Gerhard.h */,
 				14E1F5861D6748B200D45B9C /* Circle.cpp */,
@@ -444,6 +449,7 @@
 				7A61C288AE942E5885881232 /* ofxEasyFft.cpp in Sources */,
 				14EFECD11D198BAB0001C92F /* ofxSlider.cpp in Sources */,
 				14EFECD81D198D0B0001C92F /* ofxNestedFileLoader.cpp in Sources */,
+				14E1F59D1D6B5D5A00D45B9C /* Stream.cpp in Sources */,
 				D409288D137DB82107887FFD /* ofxFft.cpp in Sources */,
 				007F713E619B81D821BEA319 /* ofxFftBasic.cpp in Sources */,
 				14EFECCE1D198BAB0001C92F /* ofxGuiGroup.cpp in Sources */,

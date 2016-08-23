@@ -11,11 +11,13 @@ void ofApp::setup() {
     isGerhardStrip.set("Gerhard Strip", false);
     isCircle.set("Circle", false);
     isHistory.set("History", false);
+    isStream.set("Stream", false);
     
     visGroup.push_back(&isGerhard);
     visGroup.push_back(&isGerhardStrip);
     visGroup.push_back(&isCircle);
     visGroup.push_back(&isHistory);
+    visGroup.push_back(&isStream);
     
     for (auto vis : visGroup){
         visualizations.add(*vis);
@@ -29,6 +31,7 @@ void ofApp::setup() {
     reset();
     resetting = false;
     history.setup(fft);
+    stream.setup();
 }
 
 void ofApp::draw() {
@@ -50,6 +53,8 @@ void ofApp::draw() {
         history.draw(this, &drawBins, threshold);
     }else if (isGerhardStrip){
         gStrip.draw(this, &drawBins, threshold, symmetrical);
+    }else if (isStream){
+        stream.draw(this, &drawBins, threshold);
     }
 }
 
@@ -105,6 +110,7 @@ void ofApp::reset(){
     gerhard.x = 0;
     circle.theta = -90;
     gStrip.setXY(0, 0);
+    stream.x = 0;
     
     resetting = true;
 }
