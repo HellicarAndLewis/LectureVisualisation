@@ -110,7 +110,6 @@ void ofApp::reset(){
     gerhard.x = 0;
     circle.theta = -90;
     gStrip.setXY(0, 0);
-    stream.x = 0;
     
     resetting = true;
 }
