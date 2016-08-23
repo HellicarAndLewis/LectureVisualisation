@@ -20,6 +20,7 @@ public:
     ofColor getColorLerp(int i);
     ofColor getColorFromSpectrum(int i);
     ofColor getColor(int i);
+    void setColorFromFFT();
     
     void update();
 	void draw();
@@ -59,6 +60,7 @@ public:
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
+    ofParameter<bool> useFFT;
     
     ofParameterGroup clips;
     map< string, string > soundClips;

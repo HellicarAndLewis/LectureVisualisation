@@ -116,6 +116,10 @@ void ofxAudioVisualApp::update() {
         }
         soundMutex.unlock();
     }
+    
+    if (useFFT && !usePalette){
+        setColorFromFFT();
+    }
 }
 
 void ofxAudioVisualApp::draw() {
@@ -142,6 +146,7 @@ void ofxAudioVisualApp::setupGui(){
     
     settings.add(colHigh.set("High", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
+    settings.add(useFFT.set("Use FFT", false));
     settings.add(usePalette.set("Use palette", false));
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
     
@@ -315,6 +320,70 @@ ofColor ofxAudioVisualApp::getColorFromSpectrum(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
     ofColor inBetween = spectrum.getColor(ofMap(percent, 0, 1, 0, spectrum.getWidth()-1, true), (int)ofMap(spectrumY, 0, 100, 0, spectrum.getHeight()-1, true));
     return inBetween;
+}
+
+void ofxAudioVisualApp::setColorFromFFT(){
+    float r1, g1, b1, r2, g2, b2, average = 0, count = 0;
+    int divider1 = drawBins.size() * log10(2.00005 * 10/12);
+    int divider2 = drawBins.size() * log10(2.005 * 10/12);
+    int divider3 = drawBins.size() * log10(2.05 * 10/12);
+    int divider4 = drawBins.size() * log10(2.1 * 10/12);
+    int divider5 = drawBins.size() * log10(2.2 * 10/12);
+    int divider6 = drawBins.size() * log10(12 * 10/12);
+    
+    cout<<divider1<<" "<<divider2<<" "<<divider3<<" "<<divider4<<" "<<divider5<<" "<<divider6<<endl;
+    
+    for (int i = 0; i < drawBins.size(); i++){
+        float mappedValue = ofMap(drawBins[i], 0, 0.007, 0, 255, true);
+        
+        count++;
+        if(i < divider1){
+            average += mappedValue;
+            if(i == divider1 - 1){
+                r1 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }else if(i < divider2){
+            average += mappedValue;
+            if(i == divider2 - 1){
+                g1 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }else if(i < divider3){
+            average += mappedValue;
+            if(i == divider3 - 1){
+                b1 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }else if(i < divider4){
+            average += mappedValue;
+            if(i == divider4 - 1){
+                r2 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }else if(i < divider5){
+            average += mappedValue;
+            if(i == divider5 - 1){
+                g2 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }else if(i < divider6){
+            average += mappedValue;
+            if(i == divider6 - 1){
+                b2 = average/count;
+                average = 0;
+                count = 0;
+            }
+        }
+    }
+    
+    colHigh.set(ofColor(r1, g1, b1, colHigh->a));
+    colLow.set(ofColor(r2, g2, b2, colLow->a));
 }
 
 ofColor ofxAudioVisualApp::getColor(int i){
