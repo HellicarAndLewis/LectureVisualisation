@@ -40,6 +40,8 @@ public:
     ofMutex soundMutex;
     vector<float> drawBins, middleBins, audioBins;
     
+    bool loadingSettings;
+    
  
     // GUI
     void setupGui();

@@ -1,0 +1,14 @@
+<group>
+	<Threshold>0.0038</Threshold>
+	<Symmetrical>1</Symmetrical>
+	<group/>
+	<Start_Bin>0</Start_Bin>
+	<End_Bin>1024</End_Bin>
+	<Cut_Up>0</Cut_Up>
+	<Cut_Down>0.1</Cut_Down>
+	<Gerhard>1</Gerhard>
+	<Gerhard_Strip>0</Gerhard_Strip>
+	<Circle>0</Circle>
+	<History>0</History>
+	<Stream>0</Stream>
+</group>

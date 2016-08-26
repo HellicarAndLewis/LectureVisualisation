@@ -88,6 +88,16 @@ void ofApp::guiKeyPressed(ofKeyEventArgs & args){
         case 's':
             saveScreenShots("gui");
             break;
+        case 'g':
+            gui.saveToFile("./settings/settings1.xml");
+            gui2.saveToFile("./settings/settings2.xml");
+            break;
+        case 'l':
+            loadingSettings = true;
+            gui.loadFromFile("./settings/settings1.xml");
+            gui2.loadFromFile("./settings/settings2.xml");
+            loadingSettings = false;
+            break;
         default:
             break;
     }
@@ -101,16 +111,17 @@ void ofApp::onSettingChanged(ofAbstractParameter &p){
 }
 
 void ofApp::onVisualizationChanged(ofAbstractParameter &p){
-    string name = p.getName();
-    
-    for (int i = 0; i < visGroup.size(); i++){
-        if (visGroup[i]->getName() == name){
-            visGroup[i]->setWithoutEventNotifications(true);
-        }else{
-            visGroup[i]->setWithoutEventNotifications(false);
+    if(!loadingSettings){
+        string name = p.getName();
+        
+        for (int i = 0; i < visGroup.size(); i++){
+            if (visGroup[i]->getName() == name){
+                visGroup[i]->setWithoutEventNotifications(true);
+            }else{
+                visGroup[i]->setWithoutEventNotifications(false);
+            }
         }
     }
-    
     reset();
 }
 

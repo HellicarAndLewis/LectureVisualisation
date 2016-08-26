@@ -91,6 +91,7 @@ void ofxAudioVisualApp::setup() {
 	ofBackground(0, 0, 0);
     ofSetBackgroundAuto(false);
     ofSetLineWidth(2);
+    loadingSettings = false;
 }
 
 void ofxAudioVisualApp::update() {
@@ -138,7 +139,7 @@ void ofxAudioVisualApp::draw() {
 void ofxAudioVisualApp::setupGui(){
     settings.add(sampleHeight.set("Sample Height", sampleImage.getHeight()/2, 0, sampleImage.getHeight()));
     settings.add(outputOn.set("Output On", false));
-    settings.add(play.set("Play!", false));
+    settings.add(play.set("Play", false));
     settings.add(backgroundRefresh.set("Background Auto", false));
     settings.add(exposure.set("Speed", 1.0, 0.0, 10.0));
     settings.add(scrub.set("Scrub", 0, 0, 1));
@@ -254,19 +255,21 @@ void ofxAudioVisualApp::audioReceived(float* input, int bufferSize, int nChannel
 }
 
 void ofxAudioVisualApp::onSpectrumChanged(ofAbstractParameter &p) {
-    string spectrumName = spectra[p.getName()];
-    for(auto it = spectra.begin(); it != spectra.end(); it++) {
-        string name = it->first;
-        if(name != p.getName()) {
-            spectrumGroup.get<bool>(name).setWithoutEventNotifications(false);
+    if(!loadingSettings){
+        string spectrumName = spectra[p.getName()];
+        for(auto it = spectra.begin(); it != spectra.end(); it++) {
+            string name = it->first;
+            if(name != p.getName()) {
+                spectrumGroup.get<bool>(name).setWithoutEventNotifications(false);
+            }
         }
+        spectrum.load(spectrumName);
     }
-    spectrum.load(spectrumName);
 }
 
 void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
     string name = p.getName();
-    if(name == "Play!") {
+    if(name == "Play") {
         ofClear(0);
         if(outputOn) {
             soundPlayer->setSpeed(exposure);
@@ -274,7 +277,6 @@ void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
             soundPlayer->play();
             soundPlayer->setPosition(scrub);
         }
-//        ofSetFullscreen(true);
     }
     
     if(name == "Scrub"){
@@ -287,13 +289,15 @@ void ofxAudioVisualApp::onSettingChanged(ofAbstractParameter &p) {
 }
 
 void ofxAudioVisualApp::onClipChanged(ofAbstractParameter &p) {
-    string clipName = soundClips[p.getName()];
-    if(soundPlayer->isPlaying()) {
-        soundPlayer->stop();
-    }
-    soundPlayer->load(clipName);
-    if(outputOn) {
-        soundPlayer->play();
+    if(!loadingSettings){
+        string clipName = soundClips[p.getName()];
+        if(soundPlayer->isPlaying()) {
+            soundPlayer->stop();
+        }
+        soundPlayer->load(clipName);
+        if(outputOn) {
+            soundPlayer->play();
+        }
     }
 }
 
