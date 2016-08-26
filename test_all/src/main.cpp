@@ -12,7 +12,7 @@ int main() {
     mainWindow->setFullscreen(true);
     
     settings.width = 500;
-    settings.height = 800;
+    settings.height = 900;
     settings.setPosition(ofVec2f(0,0));
     shared_ptr<ofAppBaseWindow> guiWindow = ofCreateWindow(settings);
     
