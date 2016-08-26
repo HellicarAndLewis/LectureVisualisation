@@ -5,8 +5,6 @@
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     
-    ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
-    
     isGerhard.set("Gerhard", true);
     isGerhardStrip.set("Gerhard Strip", false);
     isCircle.set("Circle", false);
@@ -25,8 +23,8 @@ void ofApp::setup() {
     
     gui2.add(visualizations);
     ofAddListener(visualizations.parameterChangedE(), this, &ofApp::onVisualizationChanged);
-    
     ofAddListener(startEndBin.parameterChangedE(), this, &ofApp::onBinSizeChanged);
+    ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
     
     reset();
     resetting = false;
@@ -126,7 +124,7 @@ void ofApp::onVisualizationChanged(ofAbstractParameter &p){
 }
 
 
-//----------------------- Utility -----------------------------------------------
+//----------------------- Utilities ---------------------------------------
 
 void ofApp::onBinSizeChanged(ofAbstractParameter &p){
     history.resetMesh();
@@ -137,7 +135,6 @@ void ofApp::reset(){
     gerhard.x = 0;
     circle.theta = -90;
     gStrip.setXY(0, 0);
-    
     resetting = true;
 }
 
