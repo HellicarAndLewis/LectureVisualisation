@@ -23,6 +23,8 @@ public:
     
     void setupGui();
     void drawGui(ofEventArgs & args);
+    void guiKeyPressed(ofKeyEventArgs & args);
+    void saveScreenShots(string contextName);
     
     Gerhard gerhard;
     Circle circle;

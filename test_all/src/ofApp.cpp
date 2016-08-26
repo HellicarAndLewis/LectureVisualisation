@@ -58,6 +58,21 @@ void ofApp::draw() {
     }
 }
 
+void ofApp::keyPressed(int key) {
+    ofxAudioVisualApp::keyPressed(key);
+    
+    switch (key) {
+        case 'a':
+            symmetrical = !symmetrical;
+            break;
+        case 's':
+            saveScreenShots("main");
+            break;
+        default:
+            break;
+    }
+}
+
 //----------------------- GUI -----------------------------------------------
 
 void ofApp::setupGui(){
@@ -68,12 +83,10 @@ void ofApp::drawGui(ofEventArgs & args){
     ofxAudioVisualApp::drawGui(args);
 }
 
-void ofApp::keyPressed(int key) {
-    ofxAudioVisualApp::keyPressed(key);
-    
-    switch (key) {
+void ofApp::guiKeyPressed(ofKeyEventArgs & args){
+    switch (args.key){
         case 's':
-            symmetrical = !symmetrical;
+            saveScreenShots("gui");
             break;
         default:
             break;
@@ -101,6 +114,9 @@ void ofApp::onVisualizationChanged(ofAbstractParameter &p){
     reset();
 }
 
+
+//----------------------- Utility -----------------------------------------------
+
 void ofApp::onBinSizeChanged(ofAbstractParameter &p){
     history.resetMesh();
 }
@@ -112,4 +128,12 @@ void ofApp::reset(){
     gStrip.setXY(0, 0);
     
     resetting = true;
+}
+
+void ofApp::saveScreenShots(string contextName){
+    ofImage screen;
+    string timestamp = ofGetTimestampString("%Y-%m-%d-%H-%M-%S-");
+    screen.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+    screen.update();
+    screen.save("./documentation/" + timestamp + contextName + ".png");
 }

@@ -14,11 +14,13 @@ int main() {
     settings.width = 500;
     settings.height = 900;
     settings.setPosition(ofVec2f(0,0));
+    settings.shareContextWith = mainWindow;
     shared_ptr<ofAppBaseWindow> guiWindow = ofCreateWindow(settings);
     
     shared_ptr<ofApp> mainApp(new ofApp);
     mainApp->setupGui();
     ofAddListener(guiWindow->events().draw, mainApp.get(), &ofApp::drawGui);
+    ofAddListener(guiWindow->events().keyPressed, mainApp.get(), &ofApp::guiKeyPressed);
     
     ofRunApp(mainWindow, mainApp);
     ofRunMainLoop();
