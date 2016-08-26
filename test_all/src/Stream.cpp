@@ -1,16 +1,20 @@
 #include "Stream.h"
 
-void Stream::setup(){
+void Stream::setup(ofxAudioVisualApp* app){
     fbo.allocate(ofGetWidth(), ofGetHeight());
     fbo.begin();
         ofClear(0);
     fbo.end();
+    
+    app->gui2.add(enableTearing.set("Stream: Enable Tearing", false));
 }
 
 void Stream::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
-    fbo.readToPixels(pixels);
-    image.setFromPixels(pixels);
-    image.update();
+    if(!enableTearing){
+        fbo.readToPixels(pixels);
+        image.setFromPixels(pixels);
+        image.update();
+    }
     
     fbo.begin();
         drawFbo(app, drawBins, threshold);
@@ -20,7 +24,11 @@ void Stream::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
 }
 
 void Stream::drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
-    image.draw(app->drawSpeed, 0);
+    if(enableTearing){
+        fbo.draw(app->drawSpeed, 0);
+    }else{
+        image.draw(app->drawSpeed, 0);
+    }
     
     for(int i = app->startBin; i < app->endBin; i++){
         ofColor col;

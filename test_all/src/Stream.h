@@ -5,7 +5,7 @@
 
 class Stream : public ofBaseApp {
 public:
-    void setup();
+    void setup(ofxAudioVisualApp* app);
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void trimPixels();
@@ -13,4 +13,6 @@ public:
     ofFbo fbo;
     ofPixels pixels;
     ofImage image;
+    
+    ofParameter<bool> enableTearing;
 };

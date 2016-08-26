@@ -31,7 +31,7 @@ void ofApp::setup() {
     reset();
     resetting = false;
     history.setup(fft);
-    stream.setup();
+    stream.setup(this);
 }
 
 void ofApp::draw() {
