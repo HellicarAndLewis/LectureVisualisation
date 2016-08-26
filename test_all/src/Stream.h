@@ -11,4 +11,6 @@ public:
     void trimPixels();
     
     ofFbo fbo;
+    ofPixels pixels;
+    ofImage image;
 };

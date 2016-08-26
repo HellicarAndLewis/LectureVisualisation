@@ -8,6 +8,10 @@ void Stream::setup(){
 }
 
 void Stream::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
+    fbo.readToPixels(pixels);
+    image.setFromPixels(pixels);
+    image.update();
+    
     fbo.begin();
         drawFbo(app, drawBins, threshold);
     fbo.end();
@@ -16,7 +20,7 @@ void Stream::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
 }
 
 void Stream::drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
-    fbo.draw(app->drawSpeed, 0);
+    image.draw(app->drawSpeed, 0);
     
     for(int i = app->startBin; i < app->endBin; i++){
         ofColor col;
