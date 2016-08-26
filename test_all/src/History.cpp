@@ -47,7 +47,7 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     ofPopStyle();
 }
 
-void History::resetMesh(){
+void History::reset(){
     float x = 0;
     float y = ofGetHeight()/2;
     

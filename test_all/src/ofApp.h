@@ -18,8 +18,6 @@ public:
     void reset();
     
     bool resetting;
-
-    float x;
     
     void setupGui();
     void drawGui(ofEventArgs & args);

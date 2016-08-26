@@ -47,3 +47,7 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     if(x > ofGetWidth())
         x = 0;
 }
+
+void Gerhard::reset(){
+    x = 0;
+}

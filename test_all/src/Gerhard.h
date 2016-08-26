@@ -6,6 +6,7 @@
 class Gerhard : public ofBaseApp {
 public:
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical);
+    void reset();
     
     float x = 0;
 };

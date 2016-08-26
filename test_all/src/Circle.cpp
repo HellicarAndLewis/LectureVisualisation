@@ -2,6 +2,7 @@
 
 void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
     ofPushMatrix();
+    ofPushStyle();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofRotate(theta, 0, 0, 1);
     
@@ -22,7 +23,12 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
 //        ofDrawCircle(0, ofMap(i, 0, drawBins->size()/8, 0, 500)/8, ofMap(drawBins->at(i), 0, 0.01, 0, 2, true));
 //    }
     
+    ofPopStyle();
     ofPopMatrix();
     
     theta += 0.1 * app->drawSpeed;
+}
+
+void Circle::reset(){
+    theta = -90;
 }

@@ -1,5 +1,5 @@
 <group>
-	<Threshold>0.0038</Threshold>
+	<Threshold>0</Threshold>
 	<Symmetrical>1</Symmetrical>
 	<group/>
 	<Start_Bin>0</Start_Bin>

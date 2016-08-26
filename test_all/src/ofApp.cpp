@@ -109,6 +109,7 @@ void ofApp::onSettingChanged(ofAbstractParameter &p){
 }
 
 void ofApp::onVisualizationChanged(ofAbstractParameter &p){
+    reset();
     if(!loadingSettings){
         string name = p.getName();
         
@@ -120,21 +121,21 @@ void ofApp::onVisualizationChanged(ofAbstractParameter &p){
             }
         }
     }
-    reset();
 }
 
 
 //----------------------- Utilities ---------------------------------------
 
 void ofApp::onBinSizeChanged(ofAbstractParameter &p){
-    history.resetMesh();
+    history.reset();
 }
 
 void ofApp::reset(){
-    x = 0;
-    gerhard.x = 0;
-    circle.theta = -90;
-    gStrip.setXY(0, 0);
+    gerhard.reset();
+    circle.reset();
+    gStrip.reset();
+    history.reset();
+    stream.reset();
     resetting = true;
 }
 

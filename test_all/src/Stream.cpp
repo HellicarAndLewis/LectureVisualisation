@@ -42,3 +42,11 @@ void Stream::drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float thre
         ofDrawCircle(0, ofMap(i, app->startBin, app->endBin, 0, ofGetHeight()), 2);
     }
 }
+
+void Stream::reset(){
+    fbo.begin();
+        ofClear(0);
+    fbo.end();
+    
+    image.clear();
+}

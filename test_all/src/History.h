@@ -7,7 +7,7 @@ class History : public ofBaseApp {
 public:
     void setup(ofxFft* fft);
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
-    void resetMesh();
+    void reset();
     
     ofMesh mesh;
     

@@ -9,6 +9,7 @@ public:
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void trimPixels();
+    void reset();
     
     ofFbo fbo;
     ofPixels pixels;
