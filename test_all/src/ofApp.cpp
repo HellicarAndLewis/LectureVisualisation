@@ -105,7 +105,7 @@ void ofApp::guiKeyPressed(ofKeyEventArgs & args){
 
 void ofApp::onSettingChanged(ofAbstractParameter &p){
     string name = p.getName();
-    if(name == "Play!") {
+    if(name == "Play") {
         reset();
     }
 }
