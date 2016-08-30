@@ -7,6 +7,8 @@
 #include "GerhardStrip.h"
 #include "Stream.h"
 
+#include "util_GradientSampler.h"
+
 class ofApp : public ofxAudioVisualApp {
 public:
     void setup();
@@ -38,4 +40,6 @@ public:
     ofParameter<bool> isStream;
 
     vector< ofParameter<bool>* > visGroup;
+    
+    GradientSampler gradientSampler;
 };

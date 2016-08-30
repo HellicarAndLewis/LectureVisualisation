@@ -6,16 +6,16 @@
 	<Speed>1</Speed>
 	<Scrub>0</Scrub>
 	<Draw_Speed>1</Draw_Speed>
-	<High>115, 103, 86, 255</High>
-	<Low>255, 255, 0, 255</Low>
+	<High>127, 90, 14, 255</High>
+	<Low>34, 221, 215, 255</Low>
 	<Use_FFT>0</Use_FFT>
 	<Use_palette>0</Use_palette>
-	<Sample_Y>91</Sample_Y>
+	<Sample_Y>84</Sample_Y>
 	<Lecture1>0</Lecture1>
-	<palette001>1</palette001>
+	<palette001>0</palette001>
 	<palette002>0</palette002>
 	<palette003>0</palette003>
-	<palette004>0</palette004>
+	<palette004>1</palette004>
 	<palette005>0</palette005>
 	<palette006>0</palette006>
 	<palette007>0</palette007>

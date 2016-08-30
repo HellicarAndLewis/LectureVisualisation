@@ -5,6 +5,8 @@
 void ofApp::setup() {
     ofxAudioVisualApp::setup();
     
+    gradientSampler.setup();
+    
     isGerhard.set("Gerhard", true);
     isGerhardStrip.set("Gerhard Strip", false);
     isCircle.set("Circle", false);
@@ -44,7 +46,8 @@ void ofApp::draw() {
     }
     
     if (isGerhard){
-        gerhard.draw(this, &drawBins, threshold, symmetrical);
+        gradientSampler.update(gerhard.x);
+        gerhard.draw(this, &drawBins, threshold, symmetrical, &gradientSampler);
     }else if (isCircle){
         circle.draw(this, &drawBins, threshold);
     }else if (isHistory){
@@ -79,6 +82,8 @@ void ofApp::setupGui(){
 
 void ofApp::drawGui(ofEventArgs & args){
     ofxAudioVisualApp::drawGui(args);
+    
+    gradientSampler.draw(ofGetWidth() - 270, ofGetHeight() - 600, 200, 200);
 }
 
 void ofApp::guiKeyPressed(ofKeyEventArgs & args){

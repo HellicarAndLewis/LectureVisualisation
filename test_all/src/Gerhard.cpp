@@ -1,6 +1,6 @@
 #include "Gerhard.h"
 
-void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical) {
+void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical, GradientSampler* gradientSampler) {
     ofPushMatrix();
     ofPushStyle();
     
@@ -14,12 +14,28 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
             col = (0,0,0);
         }
         
-        ofSetColor(col);
+        float height;
         if(symmetrical){
-            ofDrawCircle(x, ofMap(i, app->startBin, binSize, 0, ofGetHeight()) + ofGetHeight()/2, 2);
-            ofDrawCircle(x, ofGetHeight()/2 - ofMap(i, app->startBin, binSize, 0, ofGetHeight()), 2);
+            height = ofMap(i, app->startBin, binSize, 0, ofGetHeight()) + ofGetHeight()/2;
+            if (col != ofColor::black){
+                col.setBrightness(gradientSampler->getBrightness(height));
+            }
+            ofSetColor(col);
+            ofDrawCircle(x, height, 2);
+            
+            height = ofGetHeight()/2 - ofMap(i, app->startBin, binSize, 0, ofGetHeight());
+            if (col != ofColor::black){
+                col.setBrightness(gradientSampler->getBrightness(height));
+            }
+            ofSetColor(col);
+            ofDrawCircle(x, height, 2);
         }else{
-            ofDrawCircle(x, ofMap(i, app->startBin, binSize, 0, ofGetHeight()), 2);
+            height = ofMap(i, app->startBin, binSize, 0, ofGetHeight());
+            if (col != ofColor::black){
+                col.setBrightness(gradientSampler->getBrightness(height));
+            }
+            ofSetColor(col);
+            ofDrawCircle(x, height, 2);
         }
     }
     
