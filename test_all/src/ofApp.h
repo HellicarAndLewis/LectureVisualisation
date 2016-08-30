@@ -41,5 +41,5 @@ public:
 
     vector< ofParameter<bool>* > visGroup;
     
-    GradientSampler gradientSampler;
+//    GradientSampler gradientSampler;
 };
