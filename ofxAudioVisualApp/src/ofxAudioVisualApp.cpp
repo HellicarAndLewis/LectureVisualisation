@@ -118,8 +118,12 @@ void ofxAudioVisualApp::update() {
         soundMutex.unlock();
     }
     
-    if (useFFT && !usePalette){
-        setColorFromFFT();
+    if (useFFT){
+        if (usePalette){
+            spectrumY = ofLerp(spectrumY, ofMap(getAverageVolume(drawBins), 0.0001, 0.015, 0, 100, true), 0.1);
+        }else{
+            setColorFromFFT();
+        }
     }
 }
 
@@ -160,7 +164,7 @@ void ofxAudioVisualApp::setupGui(){
     gui2.setPosition(230, 10);
     
     gui2.add(threshold.set("Threshold", 0.0038, 0, 0.009));
-    gui2.add(symmetrical.set("Symmetrical", true));
+    gui2.add(symmetrical.set("Symmetrical", false));
     
     startEndBin.add(startBin.set("Start Bin", 0, 0, 512));
     startEndBin.add(endBin.set("End Bin", 1024, 0, 1024));
@@ -335,8 +339,6 @@ void ofxAudioVisualApp::setColorFromFFT(){
     int divider5 = drawBins.size() * log10(2.2 * 10/12);
     int divider6 = drawBins.size() * log10(12 * 10/12);
     
-    cout<<divider1<<" "<<divider2<<" "<<divider3<<" "<<divider4<<" "<<divider5<<" "<<divider6<<endl;
-    
     for (int i = 0; i < drawBins.size(); i++){
         float mappedValue = ofMap(drawBins[i], 0, 0.007, 0, 255, true);
         
@@ -386,8 +388,8 @@ void ofxAudioVisualApp::setColorFromFFT(){
         }
     }
     
-    colHigh.set(ofColor(r1, g1, b1, colHigh->a));
-    colLow.set(ofColor(r2, g2, b2, colLow->a));
+    colHigh.set(colHigh->getLerped(ofColor(r1, g1, b1, colHigh->a), 0.1));
+    colLow.set(colLow->getLerped(ofColor(r2, g2, b2, colLow->a), 0.1));
 }
 
 ofColor ofxAudioVisualApp::getColor(int i){

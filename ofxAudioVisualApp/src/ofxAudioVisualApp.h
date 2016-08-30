@@ -70,7 +70,6 @@ public:
     ofParameterGroup spectrumGroup;
     map< string, string > spectra;
     
-    
     ofParameter<float> threshold;
     ofParameter<bool> symmetrical;
 
