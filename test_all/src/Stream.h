@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxAudioVisualApp.h"
 
-class Stream : public ofBaseApp {
+class Stream {
 public:
     void setup(ofxAudioVisualApp* app);
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);

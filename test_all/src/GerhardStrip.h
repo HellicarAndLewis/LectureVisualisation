@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxAudioVisualApp.h"
 
-class GerhardStrip : public ofBaseApp {
+class GerhardStrip {
 public:
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical);
     
