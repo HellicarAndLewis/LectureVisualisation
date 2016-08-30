@@ -24,24 +24,6 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
             ofDrawCircle(x, ofMap(i, app->startBin, app->endBin, 0, ofGetHeight(), true), 2);
         }
     }
-
-    
-//    for(int i = 0; i < drawBins->size() * (0.1/symmetryFactor); i++) {
-//        ofColor col;
-//        if(drawBins->at(i) > threshold){
-//            col = app->getColor(i);
-//        }else{
-//            col = (0,0,0);
-//        }
-//        
-//        ofSetColor(col);
-//        if(symmetrical){
-//            ofDrawCircle(x, ofMap(i, 0, drawBins->size(), 0, ofGetHeight()) + (ofGetHeight() * 0.05), 2);
-//            ofDrawCircle(x, (ofGetHeight() * 0.05) - ofMap(i, 0, drawBins->size(), 0, ofGetHeight()) , 2);
-//        }else{
-//            ofDrawCircle(x, ofMap(i, 0, drawBins->size(), 0, ofGetHeight()), 2);
-//        }
-//    }
     
     ofPopStyle();
     ofPopMatrix();

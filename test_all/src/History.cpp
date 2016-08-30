@@ -22,14 +22,6 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
         mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }
     
-//    for(int i = 0; i < drawBins->size(); i++) {
-//        ofVec3f vertex = mesh.getVertex(i);
-//        float newHeight = ofMap(drawBins->at(i), 0.0, 0.1, 0, ofGetHeight()/2, true);
-//        ofColor col = app->getColor(i);
-//        mesh.setColor(i, col);
-//        mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
-//    }
-    
     yOffset += 10 * app->drawSpeed;
     
     mesh.draw();
