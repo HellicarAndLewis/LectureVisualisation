@@ -6,8 +6,9 @@
 #include "History.h"
 #include "GerhardStrip.h"
 #include "Stream.h"
+#include "OutwardCircle.h"
 
-#include "util_GradientSampler.h"
+//#include "util_GradientSampler.h"
 
 class ofApp : public ofxAudioVisualApp {
 public:
@@ -31,6 +32,7 @@ public:
     History history;
     GerhardStrip gStrip;
     Stream stream;
+    OutwardCircle outwardCircle;
     
     ofParameterGroup visualizations;
     ofParameter<bool> isGerhard;
@@ -38,6 +40,7 @@ public:
     ofParameter<bool> isHistory;
     ofParameter<bool> isGerhardStrip;
     ofParameter<bool> isStream;
+    ofParameter<bool> isOutwardCircle;
 
     vector< ofParameter<bool>* > visGroup;
     

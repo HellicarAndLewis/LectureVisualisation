@@ -12,12 +12,14 @@ void ofApp::setup() {
     isCircle.set("Circle", false);
     isHistory.set("History", false);
     isStream.set("Stream", false);
+    isOutwardCircle.set("Outward Circle", false);
     
     visGroup.push_back(&isGerhard);
     visGroup.push_back(&isGerhardStrip);
     visGroup.push_back(&isCircle);
     visGroup.push_back(&isHistory);
     visGroup.push_back(&isStream);
+    visGroup.push_back(&isOutwardCircle);
     
     for (auto vis : visGroup){
         visualizations.add(*vis);
@@ -32,6 +34,7 @@ void ofApp::setup() {
     resetting = false;
     history.setup(fft);
     stream.setup(this);
+    outwardCircle.setup(fft);
 }
 
 void ofApp::draw() {
@@ -56,6 +59,8 @@ void ofApp::draw() {
         gStrip.draw(this, &drawBins, threshold, symmetrical);
     }else if (isStream){
         stream.draw(this, &drawBins, threshold);
+    }else if (isOutwardCircle){
+        outwardCircle.draw(this, &drawBins, threshold);
     }
 }
 
@@ -141,6 +146,7 @@ void ofApp::reset(){
     gStrip.reset();
     history.reset();
     stream.reset();
+    outwardCircle.reset();
     resetting = true;
 }
 
