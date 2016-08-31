@@ -36,6 +36,13 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
         if(y > 9){
             y = 0;
         }
+    }else if(x < 0){
+        x = ofGetWidth();
+        y--;
+        
+        if(y < 0){
+            y = 9;
+        }
     }
 }
 

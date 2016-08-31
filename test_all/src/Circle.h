@@ -8,5 +8,5 @@ public:
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void reset();
     
-    float theta = -90;
+    float theta = 0;
 };

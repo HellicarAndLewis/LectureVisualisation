@@ -51,8 +51,11 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     ofPopMatrix();
     
     x += 1 * app->drawSpeed;
-    if(x > ofGetWidth())
+    if(x > ofGetWidth()){
         x = 0;
+    }else if(x < 0){
+        x = ofGetWidth();
+    }
 }
 
 void Gerhard::reset(){

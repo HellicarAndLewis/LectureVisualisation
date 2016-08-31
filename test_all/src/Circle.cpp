@@ -22,8 +22,13 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
     ofPopMatrix();
     
     theta += 0.1 * app->drawSpeed;
+    if(theta > 360){
+        theta = 0;
+    }else if(theta < 0){
+        theta = 360;
+    }
 }
 
 void Circle::reset(){
-    theta = -90;
+    theta = 0;
 }
