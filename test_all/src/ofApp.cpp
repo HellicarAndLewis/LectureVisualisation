@@ -74,6 +74,12 @@ void ofApp::keyPressed(int key) {
         case 's':
             saveScreenShots("main");
             break;
+        case 'l':
+            loadingSettings = true;
+            gui.loadFromFile("./settings/settings1.xml");
+            gui2.loadFromFile("./settings/settings2.xml");
+            loadingSettings = false;
+            break;
         default:
             break;
     }

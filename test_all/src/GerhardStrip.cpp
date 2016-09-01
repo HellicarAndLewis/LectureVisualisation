@@ -47,6 +47,11 @@ void GerhardStrip::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
 }
 
 void GerhardStrip::reset(){
+    ofPushStyle();
+    ofSetColor(0);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    ofPopStyle();
+    
     x = 0;
     y = 0;
 }
