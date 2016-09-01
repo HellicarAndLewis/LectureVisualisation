@@ -4,13 +4,13 @@
 	<Play>1</Play>
 	<Background_Auto>1</Background_Auto>
 	<Speed>1</Speed>
-	<Scrub>0.627551</Scrub>
-	<Draw_Speed>2.04082</Draw_Speed>
-	<High>71, 187, 252, 255</High>
-	<Low>178, 251, 86, 255</Low>
-	<Use_FFT>0</Use_FFT>
+	<Scrub>0</Scrub>
+	<Draw_Speed>2.5</Draw_Speed>
+	<High>165, 84, 79, 255</High>
+	<Low>124, 110, 36, 255</Low>
+	<Use_FFT>1</Use_FFT>
 	<Use_palette>0</Use_palette>
-	<Sample_Y>51</Sample_Y>
+	<Sample_Y>0</Sample_Y>
 	<Lecture1>0</Lecture1>
 	<palette001>1</palette001>
 	<palette002>0</palette002>

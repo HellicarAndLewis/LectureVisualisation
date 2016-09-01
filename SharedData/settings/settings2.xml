@@ -1,15 +1,16 @@
 <group>
-	<Threshold>0</Threshold>
+	<Threshold>0.0038</Threshold>
 	<Symmetrical>0</Symmetrical>
 	<group/>
-	<Start_Bin>5</Start_Bin>
-	<End_Bin>512</End_Bin>
+	<Start_Bin>0</Start_Bin>
+	<End_Bin>57</End_Bin>
 	<Cut_Up>0</Cut_Up>
-	<Cut_Down>0.0872449</Cut_Down>
+	<Cut_Down>0.1</Cut_Down>
 	<Gerhard>0</Gerhard>
 	<Gerhard_Strip>0</Gerhard_Strip>
 	<Circle>0</Circle>
 	<History>0</History>
-	<Stream>1</Stream>
+	<Stream>0</Stream>
 	<Outward_Circle>0</Outward_Circle>
+<Outward_Path>1</Outward_Path>
 </group>

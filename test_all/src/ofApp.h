@@ -7,6 +7,7 @@
 #include "GerhardStrip.h"
 #include "Stream.h"
 #include "OutwardCircle.h"
+#include "OutwardPath.h"
 
 //#include "util_GradientSampler.h"
 
@@ -33,6 +34,7 @@ public:
     GerhardStrip gStrip;
     Stream stream;
     OutwardCircle outwardCircle;
+    OutwardPath outwardPath;
     
     ofParameterGroup visualizations;
     ofParameter<bool> isGerhard;
@@ -41,6 +43,7 @@ public:
     ofParameter<bool> isGerhardStrip;
     ofParameter<bool> isStream;
     ofParameter<bool> isOutwardCircle;
+    ofParameter<bool> isOutwardPath;
 
     vector< ofParameter<bool>* > visGroup;
     
