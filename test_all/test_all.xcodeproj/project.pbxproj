@@ -27,6 +27,7 @@
 		14FFBA721D758765009C420C /* util_GradientSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14FFBA701D758765009C420C /* util_GradientSampler.cpp */; };
 		14FFBA751D76E01A009C420C /* OutwardCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14FFBA731D76E01A009C420C /* OutwardCircle.cpp */; };
 		14FFBAA61D7871C1009C420C /* OutwardPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14FFBAA41D7871C1009C420C /* OutwardPath.cpp */; };
+		14FFBAAB1D787EE2009C420C /* OutwardSeeds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14FFBAA91D787EE2009C420C /* OutwardSeeds.cpp */; };
 		29938E05AF78B3DF7A591187 /* ofxFftw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F353204A917F4B2BCEEABE6 /* ofxFftw.cpp */; };
 		47741AD4D543009E4DF29CEA /* ofxProcessFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 971B530AB93ACC5065D9489E /* ofxProcessFFT.cpp */; };
 		6DB9E3911BA6216FE1F0E91C /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = DACFE8C08D7F4619176E65D7 /* kiss_fftr.c */; };
@@ -105,6 +106,8 @@
 		14FFBA741D76E01A009C420C /* OutwardCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutwardCircle.h; sourceTree = "<group>"; };
 		14FFBAA41D7871C1009C420C /* OutwardPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutwardPath.cpp; sourceTree = "<group>"; };
 		14FFBAA51D7871C1009C420C /* OutwardPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutwardPath.h; sourceTree = "<group>"; };
+		14FFBAA91D787EE2009C420C /* OutwardSeeds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutwardSeeds.cpp; sourceTree = "<group>"; };
+		14FFBAAA1D787EE2009C420C /* OutwardSeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutwardSeeds.h; sourceTree = "<group>"; };
 		1CBD6F883000C78087DD5738 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = _kiss_fft_guts.h; path = ../../../addons/ofxFft/libs/kiss/_kiss_fft_guts.h; sourceTree = SOURCE_ROOT; };
 		2D0C0AA4436B2A16530BA991 /* fftw3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fftw3.h; path = ../../../addons/ofxFft/libs/fftw/include/fftw3.h; sourceTree = SOURCE_ROOT; };
 		32CA89CD22339F4F9433CAF6 /* ofxFft.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFft.cpp; path = ../../../addons/ofxFft/src/ofxFft.cpp; sourceTree = SOURCE_ROOT; };
@@ -321,6 +324,8 @@
 				14FFBA741D76E01A009C420C /* OutwardCircle.h */,
 				14FFBAA41D7871C1009C420C /* OutwardPath.cpp */,
 				14FFBAA51D7871C1009C420C /* OutwardPath.h */,
+				14FFBAA91D787EE2009C420C /* OutwardSeeds.cpp */,
+				14FFBAAA1D787EE2009C420C /* OutwardSeeds.h */,
 				14E1F59B1D6B5D5A00D45B9C /* Stream.cpp */,
 				14E1F59C1D6B5D5A00D45B9C /* Stream.h */,
 				14E1F5811D6740BC00D45B9C /* Gerhard.cpp */,
@@ -452,6 +457,7 @@
 				14EFECD21D198BAB0001C92F /* ofxSliderGroup.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				14E1F58C1D674BAB00D45B9C /* History.cpp in Sources */,
+				14FFBAAB1D787EE2009C420C /* OutwardSeeds.cpp in Sources */,
 				14EFECCF1D198BAB0001C92F /* ofxLabel.cpp in Sources */,
 				14FFBA751D76E01A009C420C /* OutwardCircle.cpp in Sources */,
 				14F2D2D41D2A77FA008556D8 /* ofxAudioVisualApp.cpp in Sources */,

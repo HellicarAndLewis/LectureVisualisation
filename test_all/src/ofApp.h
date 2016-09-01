@@ -8,6 +8,7 @@
 #include "Stream.h"
 #include "OutwardCircle.h"
 #include "OutwardPath.h"
+#include "OutwardSeeds.h"
 
 //#include "util_GradientSampler.h"
 
@@ -35,6 +36,7 @@ public:
     Stream stream;
     OutwardCircle outwardCircle;
     OutwardPath outwardPath;
+    OutwardSeeds outwardSeeds;
     
     ofParameterGroup visualizations;
     ofParameter<bool> isGerhard;
@@ -44,6 +46,7 @@ public:
     ofParameter<bool> isStream;
     ofParameter<bool> isOutwardCircle;
     ofParameter<bool> isOutwardPath;
+    ofParameter<bool> isOutwardSeeds;
 
     vector< ofParameter<bool>* > visGroup;
     

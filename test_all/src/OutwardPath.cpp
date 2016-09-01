@@ -1,6 +1,6 @@
 #include "OutwardPath.h"
 
-void OutwardPath::setup(ofxFft* fft){
+void OutwardPath::setup(){
     reset();
 }
 

@@ -5,7 +5,7 @@
 
 class OutwardPath {
 public:
-    void setup(ofxFft* fft);
+    void setup();
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void reset();
     

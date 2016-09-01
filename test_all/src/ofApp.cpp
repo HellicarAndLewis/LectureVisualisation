@@ -14,6 +14,7 @@ void ofApp::setup() {
     isStream.set("Stream", false);
     isOutwardCircle.set("Outward Circle", false);
     isOutwardPath.set("Outward Path", false);
+    isOutwardSeeds.set("Outward Seeds", false);
     
     visGroup.push_back(&isGerhard);
     visGroup.push_back(&isGerhardStrip);
@@ -22,6 +23,7 @@ void ofApp::setup() {
     visGroup.push_back(&isStream);
     visGroup.push_back(&isOutwardCircle);
     visGroup.push_back(&isOutwardPath);
+    visGroup.push_back(&isOutwardSeeds);
     
     for (auto vis : visGroup){
         visualizations.add(*vis);
@@ -32,12 +34,12 @@ void ofApp::setup() {
     ofAddListener(startEndBin.parameterChangedE(), this, &ofApp::onBinSizeChanged);
     ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
     
-    reset();
     resetting = false;
     history.setup(fft);
     stream.setup(this);
     outwardCircle.setup(fft);
-    outwardPath.setup(fft);
+    outwardPath.setup();
+    outwardSeeds.setup();
 }
 
 void ofApp::draw() {
@@ -66,6 +68,8 @@ void ofApp::draw() {
         outwardCircle.draw(this, &drawBins, threshold);
     }else if (isOutwardPath){
         outwardPath.draw(this, &drawBins, threshold);
+    }else if (isOutwardSeeds){
+        outwardSeeds.draw(this, &drawBins, threshold);
     }
 }
 
@@ -159,6 +163,7 @@ void ofApp::reset(){
     stream.reset();
     outwardCircle.reset();
     outwardPath.reset();
+    outwardSeeds.reset();
     resetting = true;
 }
 
