@@ -1,6 +1,9 @@
 # LectureVisualisation
 A series of audio visualisations of recorded lectures.
 
+![My image](https://github.com/HellicarAndLewis/LectureVisualisation/blob/master/SharedData/documentation/2016-09-01-17-51-35-main.jpeg)
+
+
 # Controls
 
 g to hide and show gui
