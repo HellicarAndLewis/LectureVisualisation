@@ -58,7 +58,7 @@ void OutwardSeeds::setup(){
         seeds[i].setup();
     }
     
-    Seed* initialSeed = &seeds[(int)ofRandom(10)];
+    Seed* initialSeed = &seeds[(int)ofRandom(seeds.size())];
     initialSeed->active = true;
     activeSeeds.push_back(initialSeed);
 }
@@ -80,7 +80,7 @@ void OutwardSeeds::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float t
         
         activeSeeds[i]->draw(app, drawBins, threshold);
     }
-    ofLog()<<newActiveSeeds.size();
+//    ofLog()<<newActiveSeeds.size();
     activeSeeds.insert(activeSeeds.end(), newActiveSeeds.begin(), newActiveSeeds.end());
 }
 
@@ -96,7 +96,7 @@ void OutwardSeeds::reset(){
 }
 
 bool OutwardSeeds::collisionDetect(Seed* origin, Seed* target){
-    if(origin->radius > 0 && ofDistSquared(origin->cx, origin->cy, target->cx, target->cy) > (origin->radius * origin->radius)){
+    if(ofDistSquared(origin->cx, origin->cy, target->cx, target->cy) < (origin->radius * origin->radius)){
         return true;
     }else{
         return false;

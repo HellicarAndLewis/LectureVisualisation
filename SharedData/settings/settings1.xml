@@ -2,12 +2,12 @@
 	<Sample_Height>0</Sample_Height>
 	<Output_On>1</Output_On>
 	<Play>1</Play>
-	<Background_Auto>1</Background_Auto>
+	<Background_Auto>0</Background_Auto>
 	<Speed>1</Speed>
 	<Scrub>0.255102</Scrub>
-	<Draw_Speed>1</Draw_Speed>
+	<Draw_Speed>2.95918</Draw_Speed>
 	<High>255, 255, 255, 255</High>
-	<Low>255, 255, 255, 184</Low>
+	<Low>255, 255, 255, 1</Low>
 	<Use_FFT>0</Use_FFT>
 	<Use_palette>0</Use_palette>
 	<Sample_Y>0</Sample_Y>
