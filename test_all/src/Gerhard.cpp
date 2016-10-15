@@ -1,9 +1,9 @@
 #include "Gerhard.h"
 
-void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical) {
+void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold) {
     ofPushMatrix();
     ofPushStyle();
-    
+
     int binSize = abs(app->endBin - app->startBin);
     for(int i = app->startBin, j = 0; j < binSize; i++, j++){
         ofColor col;
@@ -14,37 +14,24 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
         }
         
         ofSetColor(col);
-        
-        float height;
-        if(symmetrical){
-            height = ofMap(i, app->startBin, binSize, 0, ofGetHeight()) + ofGetHeight()/2;
 
-//            if (col != ofColor::black){
-//                col.setBrightness(gradientSampler->getBrightness(height));
-//            }
-            
-//            ofSetColor(col);
-            ofDrawCircle(x, height, 2);
-            
-            
-            height = ofGetHeight()/2 - ofMap(i, app->startBin, binSize, 0, ofGetHeight());
-            
-//            if (col != ofColor::black){
-//                col.setBrightness(gradientSampler->getBrightness(height));
-//            }
-            
-//            ofSetColor(col);
-            ofDrawCircle(x, height, 2);
-        }else{
+        float height;
+//        if(symmetrical){
+//            height = ofMap(i, app->startBin, binSize, 0, ofGetHeight()) + ofGetHeight()/2;
+//            
+//            height = ofGetHeight()/2 - ofMap(i, app->startBin, binSize, 0, ofGetHeight());
+//            
+////            if (col != ofColor::black){
+////                col.setBrightness(gradientSampler->getBrightness(height));
+////            }
+//            
+////            ofSetColor(col);
+//            ofDrawCircle(x, height, 2);
+//        }else{
             height = ofMap(i, app->startBin, binSize, 0, ofGetHeight());
-            
-//            if (col != ofColor::black){
-//                col.setBrightness(gradientSampler->getBrightness(height));
-//            }
-            
-//            ofSetColor(col);
+
             ofDrawCircle(x, height, 2);
-        }
+//        }
     }
     
     ofPopStyle();

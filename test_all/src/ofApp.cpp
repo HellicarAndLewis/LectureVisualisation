@@ -55,7 +55,7 @@ void ofApp::draw() {
     
     if (isGerhard){
 //        gradientSampler.update(gerhard.x);
-        gerhard.draw(this, &drawBins, threshold, symmetrical);
+        gerhard.draw(this, &drawBins, threshold);
     }else if (isCircle){
         circle.draw(this, &drawBins, threshold);
     }else if (isHistory){

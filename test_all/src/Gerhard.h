@@ -6,7 +6,7 @@
 
 class Gerhard {
 public:
-    void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold, bool symmetrical);
+    void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void reset();
     
     float x = 0;
