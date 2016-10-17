@@ -21,7 +21,7 @@ void OutwardPath::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float th
             float y = radius * sin(theta);
             float z = ofMap(drawBins->at(i), 0.0, 0.05, 0, 100);
             
-            ofColor col = app->getColor(j);
+            ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
             ofSetColor(col);
             
             ofCurveVertex(x, y, z);

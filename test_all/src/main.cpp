@@ -4,13 +4,13 @@
 
 int main() { 
     ofGLFWWindowSettings settings;
-    settings.width = 1280;
-    settings.height = 720;
-    settings.setPosition(ofVec2f(300,0));
+    settings.width = 1920;
+    settings.height = 1080;
+    settings.setPosition(ofVec2f(500,0));
     settings.resizable = true;
     shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
-    mainWindow->setFullscreen(true);
-    
+//    mainWindow->setFullscreen(true);
+
     settings.width = 500;
     settings.height = ofGetScreenHeight();
     settings.setPosition(ofVec2f(0,0));

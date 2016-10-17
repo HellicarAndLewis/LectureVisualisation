@@ -42,7 +42,17 @@ void ofxAudioVisualApp::setup() {
             clip->set(tempName[0], false);
             soundClips[tempName[0]] = soundPaths[i];
             clips.add(*clip);
-            
+
+            metadata[soundPaths[i]]["time"] = "14:00";
+            metadata[soundPaths[i]]["length"] = "200";
+            metadata[soundPaths[i]]["date"] = "20_04_2016";
+            metadata[soundPaths[i]]["dayOfYear"] = "360";
+            metadata[soundPaths[i]]["day"] = "Wednesday";
+            metadata[soundPaths[i]]["maxTemp"] = "14";
+            metadata[soundPaths[i]]["minTemp"] = "4";
+            metadata[soundPaths[i]]["gender"] = "male";
+            metadata[soundPaths[i]]["category"] = "science";
+
         } else {
             ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
         }
@@ -50,6 +60,7 @@ void ofxAudioVisualApp::setup() {
     
     if(soundPaths.size()) {
         soundPlayer->load(soundPaths[0]);
+        currentClip = soundPaths[0];
     } else {
         ofLogError("No Lectures Loaded");
     }
@@ -78,6 +89,7 @@ void ofxAudioVisualApp::setup() {
     
     if(spectrumPaths.size()) {
         spectrum.load(spectra.begin()->second);
+        setBaseColor();
     } else {
         ofLogError("No Spectra Loaded");
     }
@@ -153,6 +165,7 @@ void ofxAudioVisualApp::setupGui(){
     settings.add(colLow.set("Low", ofColor(0)));
     settings.add(useFFT.set("Use FFT", false));
     settings.add(usePalette.set("Use palette", false));
+    settings.add(useMetadata.set("Use metadata", true));
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
     
     gui.setup("Main");
@@ -302,6 +315,10 @@ void ofxAudioVisualApp::onClipChanged(ofAbstractParameter &p) {
         if(outputOn) {
             soundPlayer->play();
         }
+
+        currentClip = clipName;
+
+        setBaseColor();
     }
 }
 
@@ -318,6 +335,22 @@ void ofxAudioVisualApp::keyPressed(int key) {
     }
 }
 
+void ofxAudioVisualApp::setBaseColor(){
+    //Colour etc change here with clip's metadata
+    vector<string> startTime = ofSplitString(metadata[currentClip]["time"], ":");
+    int startHour = ofToInt(startTime[0]);
+    int startMinute = ofToInt(startTime[1]);
+    float redValue = ofMap(startHour, 12, 24, 0, 255, true);
+
+    int dayOfYear = ofToInt(metadata[currentClip]["dayOfYear"]);
+    float greenValue = ofMap(dayOfYear, 1, 365, 0, 255);
+
+    // blueValue to be decided on the subject, assuming now
+    float blueValue = 128;
+
+    baseColor = ofColor(redValue, greenValue , blueValue);
+}
+
 ofColor ofxAudioVisualApp::getColorLerp(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
     ofColor inBetween = colLow.get().getLerped(colHigh.get(), percent);
@@ -326,8 +359,28 @@ ofColor ofxAudioVisualApp::getColorLerp(int i) {
 
 ofColor ofxAudioVisualApp::getColorFromSpectrum(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
-    ofColor inBetween = spectrum.getColor(ofMap(percent, 0, 1, 0, spectrum.getWidth()-1, true), (int)ofMap(spectrumY, 0, 100, 0, spectrum.getHeight()-1, true));
+    ofColor inBetween = spectrum.getColor(
+                            ofMap(percent, 0, 1, 0, spectrum.getWidth()-1, true),
+                            (int)ofMap(spectrumY, 0, 100, 0, spectrum.getHeight()-1, true)
+                        );
     return inBetween;
+}
+
+ofColor ofxAudioVisualApp::getColorFromMetadata(int i, int position){
+    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
+
+    float positionHours = position/1000/60/60;
+    float positionMinutes = position/1000/60;
+
+    float startHour = ofToInt(ofSplitString(metadata[currentClip]["time"], ":")[0]);
+    float currentHour = startHour + positionHours;
+
+    float redValue = ofMap(currentHour, 12, 24, 0, 255, true);
+
+    float greenValue = baseColor.g;
+    float blueValue = baseColor.b;
+
+    return ofColor(ofLerp(baseColor.r, redValue, 0.5), ofLerp(baseColor.g, greenValue, 0.5), ofLerp(baseColor.b, blueValue, 0.5));
 }
 
 void ofxAudioVisualApp::setColorFromFFT(){
@@ -392,9 +445,11 @@ void ofxAudioVisualApp::setColorFromFFT(){
     colLow.set(colLow->getLerped(ofColor(r2, g2, b2, colLow->a), 0.1));
 }
 
-ofColor ofxAudioVisualApp::getColor(int i){
+ofColor ofxAudioVisualApp::getColor(int i, int position){
     if (usePalette){
         return getColorFromSpectrum(i);
+    }else if(useMetadata){
+        return getColorFromMetadata(i, position);
     }else{
         return getColorLerp(i);
     }

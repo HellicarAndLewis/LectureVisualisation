@@ -35,6 +35,7 @@ void ofApp::setup() {
     ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
     
     resetting = false;
+    gerhard.setup();
     history.setup(fft);
     stream.setup(this);
     outwardCircle.setup(fft);

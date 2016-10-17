@@ -30,7 +30,7 @@ void OutwardCircle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float 
         float y = radius * sin(theta);
         float z = ofMap(drawBins->at(i), 0.0, 0.1, 0, 50);
         
-        ofColor col = app->getColor(j);
+        ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
         mesh.setColor(i, col);
         
         mesh.setVertex(i, ofVec3f(x, y, z));

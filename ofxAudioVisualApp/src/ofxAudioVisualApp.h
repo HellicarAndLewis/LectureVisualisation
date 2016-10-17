@@ -17,9 +17,11 @@ public:
     
     void onClipChanged(ofAbstractParameter &p);
     float getAverageVolume(vector<float>& buffer);
+    void setBaseColor();
     ofColor getColorLerp(int i);
     ofColor getColorFromSpectrum(int i);
-    ofColor getColor(int i);
+    ofColor getColorFromMetadata(int i, int position);
+    ofColor getColor(int i, int position);
     void setColorFromFFT();
     
     void update();
@@ -62,10 +64,14 @@ public:
     ofParameter<ofColor> colLow;
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
+    ofParameter<bool> useMetadata;
     ofParameter<bool> useFFT;
     
     ofParameterGroup clips;
     map< string, string > soundClips;
+    map< string, map<string, string> > metadata;
+    string currentClip;
+    ofColor baseColor;
     
     ofParameterGroup spectrumGroup;
     map< string, string > spectra;

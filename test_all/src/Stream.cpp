@@ -33,7 +33,7 @@ void Stream::drawFbo(ofxAudioVisualApp* app, vector<float>* drawBins, float thre
     for(int i = app->startBin; i < app->endBin; i++){
         ofColor col;
         if(drawBins->at(i) > threshold){
-            col = app->getColor(i);
+            col = app->getColor(i, app->soundPlayer->getPositionMS());
         }else{
             col = (0,0,0);
         }

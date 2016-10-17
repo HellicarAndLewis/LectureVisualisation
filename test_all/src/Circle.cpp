@@ -10,7 +10,7 @@ void Circle::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresho
     for(int i = app->startBin, j = 0; j < binSize; i++, j++) {
         ofColor col;
         if(drawBins->at(i) > threshold){
-            col = app->getColor(i);
+            col = app->getColor(i, app->soundPlayer->getPositionMS());
         }else{
             col = (0,0,0);
         }
