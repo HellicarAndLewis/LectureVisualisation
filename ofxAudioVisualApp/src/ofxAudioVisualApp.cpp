@@ -43,6 +43,7 @@ void ofxAudioVisualApp::setup() {
             soundClips[tempName[0]] = soundPaths[i];
             clips.add(*clip);
 
+            // Apply metadata after this
             metadata[soundPaths[i]]["time"] = "14:00";
             metadata[soundPaths[i]]["length"] = "200";
             metadata[soundPaths[i]]["date"] = "20_04_2016";
@@ -99,7 +100,13 @@ void ofxAudioVisualApp::setup() {
     gui.add(spectrumGroup);
     ofAddListener(clips.parameterChangedE(), this, &ofxAudioVisualApp::onClipChanged);
     ofAddListener(spectrumGroup.parameterChangedE(), this, &ofxAudioVisualApp::onSpectrumChanged);
-	
+
+    // Set the different colours assigned to different categories
+    categoryColors["science"] = ofColor(255, 0, 0);
+    categoryColors["history"] = ofColor(206, 213, 0);
+    categoryColors["religion"] = ofColor(0, 170, 144);
+
+
 	ofBackground(0, 0, 0);
     ofSetBackgroundAuto(false);
     ofSetLineWidth(2);
@@ -380,12 +387,9 @@ ofColor ofxAudioVisualApp::getColorFromMetadata(int i, int position){
     float greenValue = baseColor.g;
     float blueValue = baseColor.b;
 
-    ofColor newColorHigh, newColor;
+    ofColor newColor;
     ofColor newColorLow = ofColor(redValue, greenValue, blueValue);
-
-    if(metadata[currentClip]["category"] == "science"){
-        newColorHigh = ofColor(118, 209, 248);
-    }
+    ofColor newColorHigh = categoryColors[metadata[currentClip]["category"]];
 
     newColor = newColorLow.getLerped(newColorHigh, percent);
 

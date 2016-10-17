@@ -70,6 +70,7 @@ public:
     ofParameterGroup clips;
     map< string, string > soundClips;
     map< string, map<string, string> > metadata;
+    map< string, ofColor > categoryColors;
     string currentClip;
     ofColor baseColor;
     
