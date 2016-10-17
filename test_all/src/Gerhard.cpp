@@ -21,8 +21,10 @@ void Gerhard::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
 
         float height;
         height = ofMap(i, app->startBin, binSize, 0, ofGetHeight());
+//        height += app->getAverageVolume(*drawBins) * 10000;
 
-        ofDrawCircle(x, height, 2);
+        float z = app->getAverageVolume(*drawBins)*1000 + 2;
+        ofDrawCircle(x, height, z);
     }
     
     ofPopStyle();
