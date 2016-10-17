@@ -380,7 +380,16 @@ ofColor ofxAudioVisualApp::getColorFromMetadata(int i, int position){
     float greenValue = baseColor.g;
     float blueValue = baseColor.b;
 
-    return ofColor(ofLerp(baseColor.r, redValue, 0.5), ofLerp(baseColor.g, greenValue, 0.5), ofLerp(baseColor.b, blueValue, 0.5));
+    ofColor newColorHigh, newColor;
+    ofColor newColorLow = ofColor(redValue, greenValue, blueValue);
+
+    if(metadata[currentClip]["category"] == "science"){
+        newColorHigh = ofColor(118, 209, 248);
+    }
+
+    newColor = newColorLow.getLerped(newColorHigh, percent);
+
+    return newColor;
 }
 
 void ofxAudioVisualApp::setColorFromFFT(){
