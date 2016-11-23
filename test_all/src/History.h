@@ -9,7 +9,7 @@ public:
     void draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold);
     void reset();
     
-    ofMesh mesh;
+    ofMesh myMesh;
     
     int yOffset, binSize;
 };

@@ -1,12 +1,12 @@
 #include "History.h"
 
 void History::setup(ofxFft* fft){
-    mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+    myMesh.setMode(OF_PRIMITIVE_LINE_STRIP);
     float x = 0;
     float y = ofGetHeight()/2;
     for(int i = 0; i < fft->getBinSize(); i++) {
-        mesh.addVertex(ofVec3f(x, y, 0));
-        mesh.addColor(ofColor(255));
+		myMesh.addVertex(ofVec3f(x, y, 0));
+		myMesh.addColor(ofColor(255));
         x += ofGetWidth()/fft->getBinSize()*2;
     }
     yOffset = 0;
@@ -14,17 +14,19 @@ void History::setup(ofxFft* fft){
 
 void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
     binSize = abs(app->endBin - app->startBin);
-    for(int i = 0, j = app->startBin; i < binSize; i++, j++) {
-        ofVec3f vertex = mesh.getVertex(i);
+	ofSetColor(0);
+	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize); i < binSize; i++, j++, j%= binSize) {
+        ofVec3f vertex = myMesh.getVertex(i);
         float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight()/2, true);
         ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
-        mesh.setColor(i, col);
-        mesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
+		myMesh.setColor(i, col);
+		myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
     }
     
     yOffset += 10 * app->drawSpeed;
     
-    mesh.draw();
+    myMesh.draw();
     
     ofPushStyle();
     if(yOffset > ofGetHeight()) {
@@ -43,10 +45,10 @@ void History::reset(){
     float x = 0;
     float y = ofGetHeight()/2;
     
-    mesh.clear();
+    myMesh.clear();
     for(int i = 0; i < binSize; i++) {
-        mesh.addVertex(ofVec3f(x, y, 0));
-        mesh.addColor(ofColor(255));
+        myMesh.addVertex(ofVec3f(x, y, 0));
+        myMesh.addColor(ofColor(255));
         x += ofGetWidth()/(float)binSize*4;
     }
     yOffset = 0;

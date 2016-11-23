@@ -7,10 +7,10 @@ void ofApp::setup() {
     
 //    gradientSampler.setup();
     
-    isGerhard.set("Gerhard", true);
+    isGerhard.set("Gerhard", false);
     isGerhardStrip.set("Gerhard Strip", false);
     isCircle.set("Circle", false);
-    isHistory.set("History", false);
+    isHistory.set("History", true);
     isStream.set("Stream", false);
     isOutwardCircle.set("Outward Circle", false);
     isOutwardPath.set("Outward Path", false);

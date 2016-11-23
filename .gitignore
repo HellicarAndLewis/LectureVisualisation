@@ -70,3 +70,11 @@ cove/bin/data/content/crossrail/tilesQuick
 *.jpg
 *.png
 *.mov
+*.mp3
+*.exe
+*.exp
+*.dll
+*.ilk
+*.rc
+*.pdb
+*.db
