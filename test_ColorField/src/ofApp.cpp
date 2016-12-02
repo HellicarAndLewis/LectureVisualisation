@@ -18,14 +18,17 @@ void ofApp::setup(){
 
 	player.play();
 	player.setPosition(0.9999f);
-	float speed = 5.0f;
+	float speed = 1.5f;
 	player.setSpeed(speed);
-	songDuration = player.getPositionMS();
+	songDuration = 3600000;//player.getPositionMS();
+	cout << player.getPositionMS() << endl;
 	songDuration /= speed;
 	player.setPosition(0);
 	player.stop();
 
 	ofSetBackgroundAuto(false);
+
+	singlePoint = true;
 
 	border = 30;
 
@@ -34,13 +37,13 @@ void ofApp::setup(){
 	float frameRate = numTotalStepsToTake / songDuration;
 	frameRate *= 1000;
 
-	baseCol = ofColor(64, 153, 189);
-	timeCol = ofColor(255, 153, 137);
+	baseCol = ofColor(25, 16, 25);
+	timeCol = ofColor(149, 161, 189);
 
 	x = border;
 	y = border;
 	brightness = 0;
-	col = ofColor(baseCol);
+	col = baseCol;
 
 	//Setup our display text pieces:
 	startTime.renderText("18:10");
@@ -91,7 +94,7 @@ void ofApp::setup(){
 	date.position.x = ofGetWidth() - 100;
 	date.position.y = 15;
 
-	//Calculatr the time angle for displaying our target
+	//Calculate the time angle for displaying our target
 	startTimeAngle = calculateTimeAngle(startTime.displayText);
 	endTimeAngle = calculateTimeAngle(endTime.displayText);
 
@@ -99,51 +102,56 @@ void ofApp::setup(){
 
 	ofSetFrameRate(frameRate);
 
-	player.play();
+	ofHideCursor();
+	//player.play();
 
 	ofBackground(0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	spectrum = ofSoundGetSpectrum(1);
-	brightness = ofMap(*spectrum, 0, 0.08, 0.2, 1.0);
+	if (player.isPlaying()) {
+		spectrum = ofSoundGetSpectrum(1);
+		brightness = ofMap(*spectrum, 0, 0.06, 0.2, 1.0);
+		col = baseCol.getLerped(timeCol, brightness);
 
-	//if (ofGetElapsedTimeMillis() - timeOfLastStep > stepInterval) {
-		x++;
-		//timeOfLastStep = ofGetElapsedTimeMillis();
-	//}
-	if (x >= ofGetWidth()) {
-		x = border;
+		lastPoint.x = x;
+		lastPoint.y = y;
 		y++;
+		if (y >= ofGetHeight()) {
+			y = border;
+			x++;
+		}
 	}
 
-	float percentDownThePage = y / ofGetHeight();
-	float diff = abs(timePercentage - percentDownThePage);
-	float dist = mapNonLinear(diff, 0.0, timePercentage, 1.0, 0.0, durationPercentage);
-	col = baseCol.getLerped(timeCol, dist);
+	//float percentDownThePage = y / ofGetHeight();
+	//float diff = abs(timePercentage - percentDownThePage);
+	//float dist = mapNonLinear(diff, 0.0, timePercentage, 1.0, 0.0, durationPercentage);
+	//col = baseCol.getLerped(timeCol, dist);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	if (singlePoint) {
+		ofSetColor(0);
+		ofDrawRectangle(lastPoint.x, lastPoint.y, 1, 1);
+	}
 	ofSetColor(col * brightness);
 	ofDrawRectangle(x, y, 1, 1);
+
 
 	ofSetColor(255);
 	//startTime.buff.draw(ofGetWidth() / 2, ofGetHeight() / 2);
 
-	startTime.draw();
-	endTime.draw();
-	title.draw();
-	speaker.draw();
-	date.draw();
+	//startTime.draw();
+	//endTime.draw();
+	//title.draw();
+	//speaker.draw();
+	//date.draw();
 
-	sweepBuffer.draw(0, 0);
+	//sweepBuffer.draw(0, 0);
 
-	//for (int i = 0; i < ofGetHeight() - border; i++) {
-	//}
-
-	ofDrawBitmapStringHighlight(ofToString(ofGetFrameRate()), 10, 10);
+	//ofDrawBitmapStringHighlight(ofToString(ofGetFrameRate()), 10, 10);
 
 }
 
@@ -177,7 +185,21 @@ void ofApp::renderTimeSweep(float angle1, float angle2, ofColor col) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+	if (key == ' ') {
+		if (player.isPlaying()) {
+			player.stop();
+			x = border;
+			y = border;
+			ofSetBackgroundAuto(true);
+		}
+		else {
+			player.play();
+			ofSetBackgroundAuto(false);
+		}
+	}
+	else if (key == 'p') {
+		singlePoint = !singlePoint;
+	}
 }
 
 //--------------------------------------------------------------

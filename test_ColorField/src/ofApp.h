@@ -88,6 +88,10 @@ class ofApp : public ofBaseApp{
 
 		float durationPercentage;
 
+		bool singlePoint;
+
+		ofVec2f lastPoint;
+
 		ofColor baseCol; // 8, 58, 146
 		ofColor timeCol; // 207, 141, 149
 };
