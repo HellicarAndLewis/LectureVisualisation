@@ -12,9 +12,9 @@ float mapNonLinear(float in, float inMin, float inMax, float outMin, float outMa
 }
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetDataPathRoot("../../SharedData");
+	//ofSetDataPathRoot("../../../../SharedData");
 
-	player.load("lectures/Simon Kovesi.mp3");
+	player.load("lectures/Damned Statistics.mp3");
 
 	player.play();
 	player.setPosition(0.9999f);
@@ -200,6 +200,9 @@ void ofApp::keyPressed(int key){
 	else if (key == 'p') {
 		singlePoint = !singlePoint;
 	}
+    else if (key == 'f') {
+        ofToggleFullscreen();
+    }
 }
 
 //--------------------------------------------------------------

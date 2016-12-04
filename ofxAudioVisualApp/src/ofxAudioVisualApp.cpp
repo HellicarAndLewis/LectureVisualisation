@@ -105,6 +105,8 @@ void ofxAudioVisualApp::setup() {
     categoryColors["science"] = ofColor(255, 0, 0);
     categoryColors["history"] = ofColor(206, 213, 0);
     categoryColors["religion"] = ofColor(0, 170, 144);
+    
+    gui.add(startTime.set("Start Time", 0, 0, 1));
 
 
 	ofBackground(0, 0, 0);

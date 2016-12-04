@@ -16,7 +16,7 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     binSize = abs(app->endBin - app->startBin);
 	ofSetColor(0);
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
-    for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize); i < binSize; i++, j++, j%= binSize) {
+    for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize, true); i < binSize; i++, j++, j%= binSize) {
         ofVec3f vertex = myMesh.getVertex(i);
         float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight()/2, true);
         ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
