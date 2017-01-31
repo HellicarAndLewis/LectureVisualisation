@@ -23,7 +23,7 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
 		myMesh.setColor(i, col);
 		myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight - app->yOffset, vertex.z));
     }
-    cout<<app->yOffset<<endl;
+    //cout<<app->yOffset<<endl;
     
     yOffset += 10 * app->drawSpeed;
     
