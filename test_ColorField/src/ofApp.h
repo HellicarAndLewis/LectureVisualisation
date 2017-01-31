@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 
+//#define COLOR_ON_VOLUME
+
 class ofApp : public ofBaseApp{
 
 	struct text {

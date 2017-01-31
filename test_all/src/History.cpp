@@ -18,11 +18,12 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize, true); i < binSize; i++, j++, j%= binSize) {
         ofVec3f vertex = myMesh.getVertex(i);
-        float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight()/2, true);
+        float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight() * app->historyScale, true);
         ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
 		myMesh.setColor(i, col);
-		myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight, vertex.z));
+		myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight - app->yOffset, vertex.z));
     }
+    cout<<app->yOffset<<endl;
     
     yOffset += 10 * app->drawSpeed;
     
@@ -34,7 +35,7 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
         ofSetColor(0);
         ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     }else if(yOffset < 0){
-        yOffset = ofGetHeight() - 10;
+        yOffset = ofGetHeight();
         ofSetColor(0);
         ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     }

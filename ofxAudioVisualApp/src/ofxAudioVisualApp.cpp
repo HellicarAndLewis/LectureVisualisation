@@ -32,6 +32,9 @@ void ofxAudioVisualApp::setup() {
     ofSetDataPathRoot("../../../../../SharedData/");
     vector<string> soundPaths = loader.load("lectures");
     
+    ofxXmlSettings colorSettings;
+    colorSettings.loadFile("settings/colors.xml");
+    
     for(int i = 0; i < soundPaths.size(); i++) {
         vector<string> tempPath = ofSplitString(soundPaths[i], "/");
         string nameWithExtension = tempPath[tempPath.size()-1];
@@ -42,17 +45,21 @@ void ofxAudioVisualApp::setup() {
             clip->set(tempName[0], false);
             soundClips[tempName[0]] = soundPaths[i];
             clips.add(*clip);
-
+            
+            //ofColor col = ofColor(0);
+            
+            //colors[soundPaths[i]] = ofColor(0);
+            //colorSettings.getValue(")
             // Apply metadata after this
-            metadata[soundPaths[i]]["time"] = "14:00";
-            metadata[soundPaths[i]]["length"] = "200";
-            metadata[soundPaths[i]]["date"] = "20_04_2016";
-            metadata[soundPaths[i]]["dayOfYear"] = "360";
-            metadata[soundPaths[i]]["day"] = "Wednesday";
-            metadata[soundPaths[i]]["maxTemp"] = "14";
-            metadata[soundPaths[i]]["minTemp"] = "4";
-            metadata[soundPaths[i]]["gender"] = "male";
-            metadata[soundPaths[i]]["category"] = "science";
+//            metadata[soundPaths[i]]["time"] = "14:00";
+//            metadata[soundPaths[i]]["length"] = "200";
+//            metadata[soundPaths[i]]["date"] = "20_04_2016";
+//            metadata[soundPaths[i]]["dayOfYear"] = "360";
+//            metadata[soundPaths[i]]["day"] = "Wednesday";
+//            metadata[soundPaths[i]]["maxTemp"] = "14";
+//            metadata[soundPaths[i]]["minTemp"] = "4";
+//            metadata[soundPaths[i]]["gender"] = "male";
+//            metadata[soundPaths[i]]["category"] = "science";
 
         } else {
             ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
@@ -107,7 +114,7 @@ void ofxAudioVisualApp::setup() {
     categoryColors["religion"] = ofColor(0, 170, 144);
     
     gui.add(startTime.set("Start Time", 0, 0, 1));
-
+    gui.add(historyScale.set("History Scale", 0.5, 0, 1.5));
 
 	ofBackground(0, 0, 0);
     ofSetBackgroundAuto(false);
@@ -166,15 +173,19 @@ void ofxAudioVisualApp::setupGui(){
     settings.add(outputOn.set("Output On", false));
     settings.add(play.set("Play", false));
     settings.add(backgroundRefresh.set("Background Auto", false));
-    settings.add(exposure.set("Speed", 1.0, 0.0, 10.0));
+    settings.add(exposure.set("Speed", 1.0, 0.0, 35.0));
     settings.add(scrub.set("Scrub", 0, 0, 1));
     settings.add(drawSpeed.set("Draw Speed", 1, -5, 5));
     
     settings.add(colHigh.set("High", ofColor(255)));
+    settings.add(colMid.set("Mid", ofColor(255)));
     settings.add(colLow.set("Low", ofColor(0)));
     settings.add(useFFT.set("Use FFT", false));
     settings.add(usePalette.set("Use palette", false));
-    settings.add(useMetadata.set("Use metadata", true));
+    settings.add(useMetadata.set("Use metadata", false));
+    settings.add(color2Way.set("Color 2 Ways", true));
+    settings.add(yOffset.set("Y Offset", 0.0, 0.0, 500.0));
+    
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
     
     gui.setup("Main");
@@ -346,25 +357,41 @@ void ofxAudioVisualApp::keyPressed(int key) {
 
 void ofxAudioVisualApp::setBaseColor(){
     //Colour etc change here with clip's metadata
-    vector<string> startTime = ofSplitString(metadata[currentClip]["time"], ":");
-    int startHour = ofToInt(startTime[0]);
-    int startMinute = ofToInt(startTime[1]);
-    float redValue = ofMap(startHour, 12, 24, 0, 255, true);
-
-    int dayOfYear = ofToInt(metadata[currentClip]["dayOfYear"]);
-    float greenValue = ofMap(dayOfYear, 1, 365, 0, 255);
-
-    // blueValue to be decided on the subject, assuming now
-    float blueValue = 128;
+    //colors[currentClip]
+    string newColHigh = colors[currentClip]["High"];
+    
+    
+//    vector<string> startTime = ofSplitString(metadata[currentClip]["time"], ":");
+//    int startHour = ofToInt(startTime[0]);
+//    int startMinute = ofToInt(startTime[1]);
+//    float redValue = ofMap(startHour, 12, 24, 0, 255, true);
+//
+//    int dayOfYear = ofToInt(metadata[currentClip]["dayOfYear"]);
+//    float greenValue = ofMap(dayOfYear, 1, 365, 0, 255);
+//
+//    // blueValue to be decided on the subject, assuming now
+//    float blueValue = 128;
 
     baseColor = ofColor(redValue, greenValue , blueValue);
 }
 
 ofColor ofxAudioVisualApp::getColorLerp(int i) {
-    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
+    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1 * historyScale, true);
     ofColor inBetween = colLow.get().getLerped(colHigh.get(), percent);
     return inBetween;
 }
+
+ofColor ofxAudioVisualApp::getColorLerp3Ways(int i) {
+    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1 * historyScale, true);
+    ofColor inBetween;
+    if(percent < 0.5) {
+        inBetween = colLow.get().getLerped(colMid.get(), ofMap(percent, 0.0, 0.5, 0.0, 1.0));
+    } else {
+        inBetween = colMid.get().getLerped(colHigh.get(), ofMap(percent, 0.5, 1.0, 0.0, 1.0));
+    }
+    return inBetween;
+}
+
 
 ofColor ofxAudioVisualApp::getColorFromSpectrum(int i) {
     float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
@@ -376,26 +403,26 @@ ofColor ofxAudioVisualApp::getColorFromSpectrum(int i) {
 }
 
 ofColor ofxAudioVisualApp::getColorFromMetadata(int i, int position){
-    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
-
-    float positionHours = position/1000/60/60;
-    float positionMinutes = position/1000/60;
-
-    float startHour = ofToInt(ofSplitString(metadata[currentClip]["time"], ":")[0]);
-    float currentHour = startHour + positionHours;
-
-    float redValue = ofMap(currentHour, 12, 24, 0, 255, true);
-
-    float greenValue = baseColor.g;
-    float blueValue = baseColor.b;
-
-    ofColor newColor;
-    ofColor newColorLow = ofColor(redValue, greenValue, blueValue);
-    ofColor newColorHigh = categoryColors[metadata[currentClip]["category"]];
-
-    newColor = newColorLow.getLerped(newColorHigh, percent);
-
-    return newColor;
+//    float percent = ofMap(drawBins[i], 0, 0.1, 0, 1, true);
+//
+//    float positionHours = position/1000/60/60;
+//    float positionMinutes = position/1000/60;
+//
+//    float startHour = ofToInt(ofSplitString(metadata[currentClip]["time"], ":")[0]);
+//    float currentHour = startHour + positionHours;
+//
+//    float redValue = ofMap(currentHour, 12, 24, 0, 255, true);
+//
+//    float greenValue = baseColor.g;
+//    float blueValue = baseColor.b;
+//
+//    ofColor newColor;
+//    ofColor newColorLow = ofColor(redValue, greenValue, blueValue);
+//    ofColor newColorHigh = categoryColors[metadata[currentClip]["category"]];
+//
+//    newColor = newColorLow.getLerped(newColorHigh, percent);
+//
+//    return newColor;
 }
 
 void ofxAudioVisualApp::setColorFromFFT(){
@@ -465,8 +492,10 @@ ofColor ofxAudioVisualApp::getColor(int i, int position){
         return getColorFromSpectrum(i);
     }else if(useMetadata){
         return getColorFromMetadata(i, position);
-    }else{
+    }else if (color2Way) {
         return getColorLerp(i);
+    } else {
+        return getColorLerp3Ways(i);
     }
 }
 

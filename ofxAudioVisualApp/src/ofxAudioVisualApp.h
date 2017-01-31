@@ -4,6 +4,7 @@
 #include "ofxFft.h"
 #include "ofxGui.h"
 #include "ofxNestedFileLoader.h"
+#include "ofxXmlSettings.h"
 
 class ofxAudioVisualApp : public ofBaseApp {
 public:
@@ -22,6 +23,8 @@ public:
     ofColor getColorFromSpectrum(int i);
     ofColor getColorFromMetadata(int i, int position);
     ofColor getColor(int i, int position);
+    ofColor getColorLerp3Ways(int i);
+
     void setColorFromFFT();
     
     void update();
@@ -59,18 +62,22 @@ public:
     ofParameter<float> exposure;
     ofParameter<float> scrub;
     ofParameter<float> drawSpeed;
+    ofParameter<float> historyScale;
+    ofParameter<float> yOffset;
     
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;
+    ofParameter<ofColor> colMid;
     ofParameter<ofColor> colHigh;
     ofParameter<bool> usePalette;
     ofParameter<bool> useMetadata;
     ofParameter<bool> useFFT;
+    ofParameter<bool> color2Way;
     
     ofParameterGroup clips;
     map< string, string > soundClips;
-    map< string, map<string, string> > metadata;
-    map< string, ofColor > categoryColors;
+    map< string, ofColor > colors;
+    //map< string, ofColor > categoryColors;
     string currentClip;
     ofColor baseColor;
     

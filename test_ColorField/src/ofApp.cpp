@@ -1,6 +1,7 @@
 #include "ofApp.h"
 
 #define TARGET_SIZE 20
+#define SIZE 25
 
 float mapNonLinear(float in, float inMin, float inMax, float outMin, float outMax, float shaper) {
 	// (1) convert to pct (0-1)
@@ -18,9 +19,9 @@ void ofApp::setup(){
 
 	player.play();
 	player.setPosition(0.9999f);
-	float speed = 1.5f;
+	float speed = 5.0f;
 	player.setSpeed(speed);
-	songDuration = 3600000;//player.getPositionMS();
+	songDuration = player.getPositionMS();
 	cout << player.getPositionMS() << endl;
 	songDuration /= speed;
 	player.setPosition(0);
@@ -37,8 +38,8 @@ void ofApp::setup(){
 	float frameRate = numTotalStepsToTake / songDuration;
 	frameRate *= 1000;
 
-	baseCol = ofColor(25, 16, 25);
-	timeCol = ofColor(149, 161, 189);
+	baseCol = ofColor(82, 130, 255);
+	timeCol = ofColor(255, 0, 0);
 
 	x = border;
 	y = border;
@@ -112,32 +113,34 @@ void ofApp::setup(){
 void ofApp::update(){
 	if (player.isPlaying()) {
 		spectrum = ofSoundGetSpectrum(1);
-		brightness = ofMap(*spectrum, 0, 0.06, 0.2, 1.0);
+		brightness = ofMap(*spectrum, 0, 0.06, 0.2, 2.0);
+#ifdef COLOR_ON_VOLUME
 		col = baseCol.getLerped(timeCol, brightness);
-
+#endif
 		lastPoint.x = x;
 		lastPoint.y = y;
-		y++;
+		y+=SIZE;
 		if (y >= ofGetHeight()) {
 			y = border;
-			x++;
+			x+=SIZE;
 		}
 	}
-
-	//float percentDownThePage = y / ofGetHeight();
-	//float diff = abs(timePercentage - percentDownThePage);
-	//float dist = mapNonLinear(diff, 0.0, timePercentage, 1.0, 0.0, durationPercentage);
-	//col = baseCol.getLerped(timeCol, dist);
+#ifndef COLOR_ON_VOLUME
+	float percentDownThePage = x / ofGetWidth();
+	float diff = abs(timePercentage - percentDownThePage);
+	float dist = mapNonLinear(diff, 0.0, timePercentage, 1.0, 0.0, durationPercentage);
+	col = baseCol.getLerped(timeCol, dist);
+#endif
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	if (singlePoint) {
 		ofSetColor(0);
-		ofDrawRectangle(lastPoint.x, lastPoint.y, 1, 1);
+		ofDrawRectangle(lastPoint.x, lastPoint.y, SIZE, SIZE);
 	}
 	ofSetColor(col * brightness);
-	ofDrawRectangle(x, y, 1, 1);
+	ofDrawRectangle(x, y, SIZE, SIZE);
 
 
 	ofSetColor(255);
