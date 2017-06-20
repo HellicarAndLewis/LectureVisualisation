@@ -1,49 +1,140 @@
 <DamnedStatistics>
 	<High>
         <R>
-            192
-        </R>
-        <G>
-            143
-        </G>
-        <B>
-            102
-        </B>
-	</High>
-	<Mid>
-        <R>
-            100
+            99
         </R>
         <G>
             197
         </G>
         <B>
-            224
+            124
+        </B>
+	</High>
+	<Mid>
+        <R>
+            253
+        </R>
+        <G>
+            168
+        </G>
+        <B>
+            49
         </B>
 	</Mid>
 	<Low>
         <R>
-            79
+            156
         </R>
         <G>
-            78
+            82
         </G>
         <B>
-            73
+            17
         </B>
 	</Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
 </DamnedStatistics>
+
 
 <DrGorisse>
     <High>
         <R>
-            159
+            81
         </R>
         <G>
-            123
+            59
         </G>
         <B>
-            63
+            29
+        </B>
+    </High>
+    <Mid>
+        <R>
+            211
+        </R>
+        <G>
+            61
+        </G>
+        <B>
+            31
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            131
+        </R>
+        <G>
+            150
+        </G>
+        <B>
+            59
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        500
+    </YOffset>
+</DrGorisse>
+
+<DrJolley>
+    <High>
+        <R>
+            65
+        </R>
+        <G>
+            94
+        </G>
+        <B>
+            162
+        </B>
+    </High>
+    <Mid>
+        <R>
+            209
+        </R>
+        <G>
+            148
+        </G>
+        <B>
+            53
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            211
+        </R>
+        <G>
+            35
+        </G>
+        <B>
+            45
+        </B>
+    </Low>
+    <Start>
+        0.93
+    </Start>
+    <YOffset>
+        452
+    </YOffset>
+</DrJolley>
+
+<DrTessaWebber>
+    <High>
+        <R>
+            181
+        </R>
+        <G>
+            197
+        </G>
+        <B>
+            253
         </B>
     </High>
     <Mid>
@@ -51,82 +142,10 @@
             158
         </R>
         <G>
-            28
+            83
         </G>
         <B>
-            40
-        </B>
-    </Mid>
-    <Low>
-        <R>
-            55
-        </R>
-        <G>
-            47
-        </G>
-        <B>
-            49
-        </B>
-    </Low>
-</DrGorisse>
-
-<DrJolley>
-    <High>
-        <R>
-            248
-        </R>
-        <G>
-            206
-        </G>
-        <B>
-            91
-        </B>
-    </High>
-    <Mid>
-        <R>
-            73
-        </R>
-        <G>
-            43
-        </G>
-        <B>
-            34
-        </B>
-    </Mid>
-    <Low>
-        <R>
-            126
-        </R>
-        <G>
-            122
-        </G>
-        <B>
-            119
-        </B>
-    </Low>
-</DrJolley>
-
-<DrTessaWebber>
-    <High>
-        <R>
-            194
-        </R>
-        <G>
-            174
-        </G>
-        <B>
-            131
-        </B>
-    </High>
-    <Mid>
-        <R>
-            189
-        </R>
-        <G>
-            182
-        </G>
-        <B>
-            163
+            38
         </B>
     </Mid>
     <Low>
@@ -134,18 +153,24 @@
             105
         </R>
         <G>
-            79
+            50
         </G>
         <B>
-            80
+            29
         </B>
     </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
 </DrTessaWebber>
 
 <JoanneBegiot>
     <High>
         <R>
-            98
+            217
         </R>
         <G>
             14
@@ -156,7 +181,7 @@
     </High>
     <Mid>
         <R>
-            96
+            160
         </R>
         <G>
             14
@@ -167,99 +192,159 @@
     </Mid>
     <Low>
         <R>
-            41
+            47
         </R>
         <G>
-            61
+            67
         </G>
         <B>
-            80
+            90
         </B>
     </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        306
+    </YOffset>
 </JoanneBegiot>
 
 <MagicofShakespeare>
     <High>
         <R>
-            194
+            196
         </R>
         <G>
-            174
+            211
         </G>
         <B>
-            131
+            240
         </B>
     </High>
     <Mid>
         <R>
-            189
+            167
         </R>
         <G>
-            182
+            91
         </G>
         <B>
-            163
+            37
         </B>
     </Mid>
     <Low>
         <R>
-            105
+            115
         </R>
         <G>
-            79
+            65
         </G>
         <B>
-            80
+            42
         </B>
     </Low>
+    <Start>
+        0.055
+    </Start>
+    <YOffset>
+        342
+    </YOffset>
 </MagicofShakespeare>
 
 <PatrickFarmer>
     <High>
         <R>
-            175
+            255
         </R>
         <G>
-            162
+            255
         </G>
         <B>
-            180
+            255
         </B>
     </High>
     <Mid>
         <R>
-            234
+            232
         </R>
         <G>
-            101
+            14
         </G>
         <B>
-            161
+            38
         </B>
     </Mid>
     <Low>
         <R>
-            70
+            58
         </R>
         <G>
-            78
+            13
         </G>
         <B>
-            152
+            9
         </B>
     </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        270
+    </YOffset>
 </PatrickFarmer>
 
 <ProfChristianLeitmeir>
     <High>
         <R>
-            138
+            255
         </R>
         <G>
-            85
+            255
         </G>
         <B>
-            44
+            255
+        </B>
+    </High>
+    <Mid>
+        <R>
+            255
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            152
+        </R>
+        <G>
+            53
+        </G>
+        <B>
+            21
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        388
+    </YOffset>
+</ProfChristianLeitmeir>
+
+<ProfEricHayot>
+    <High>
+        <R>
+            184
+        </R>
+        <G>
+            199
+        </G>
+        <B>
+            235
         </B>
     </High>
     <Mid>
@@ -267,96 +352,72 @@
             178
         </R>
         <G>
-            43
+            112
         </G>
         <B>
-            73
+            49
         </B>
     </Mid>
     <Low>
         <R>
-            26
-        </R>
-        <G>
-            33
-        </G>
-        <B>
-            53
-        </B>
-    </Low>
-</ProfChristianLeitmeir>
-
-<ProfEricHayot>
-    <High>
-        <R>
-            103
+            140
         </R>
         <G>
             93
         </G>
         <B>
-            91
+            73
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        388
+    </YOffset>
+</ProfEricHayot>
+
+<ProfJasElsner>
+    <High>
+        <R>
+            184
+        </R>
+        <G>
+            199
+        </G>
+        <B>
+            236
         </B>
     </High>
     <Mid>
         <R>
-            190
+            158
         </R>
         <G>
-            216
+            83
         </G>
         <B>
-            243
+            38
         </B>
     </Mid>
     <Low>
         <R>
-            205
+            105
         </R>
         <G>
-            156
+            50
         </G>
         <B>
-            109
+            29
         </B>
     </Low>
-</ProfEricHayot>
-
-<!--<ProfJasElsner>-->
-<!--    <High>-->
-<!--        <R>-->
-<!--            000-->
-<!--        </R>-->
-<!--        <G>-->
-<!--            000-->
-<!--        </G>-->
-<!--        <B>-->
-<!--            000-->
-<!--        </B>-->
-<!--    </High>-->
-<!--    <Mid>-->
-<!--        <R>-->
-<!--            000-->
-<!--        </R>-->
-<!--        <G>-->
-<!--            000-->
-<!--        </G>-->
-<!--        <B>-->
-<!--            000-->
-<!--        </B>-->
-<!--    </Mid>-->
-<!--    <Low>-->
-<!--        <R>-->
-<!--            000-->
-<!--        </R>-->
-<!--        <G>-->
-<!--            000-->
-<!--        </G>-->
-<!--        <B>-->
-<!--            000-->
-<!--        </B>-->
-<!--    </Low>-->
-<!--</ProfJasElsner>-->
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</ProfJasElsner>
 
 <RogerMatthews>
     <High>
@@ -372,10 +433,10 @@
     </High>
     <Mid>
         <R>
-            140
+            187
         </R>
         <G>
-            54
+            94
         </G>
         <B>
             19
@@ -383,52 +444,1202 @@
     </Mid>
     <Low>
         <R>
-            150
+            228
         </R>
         <G>
-            178
+            152
         </G>
         <B>
-            136
+            55
         </B>
     </Low>
+    <Start>
+        0.09
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
 </RogerMatthews>
 
 <SimonKovesi>
     <High>
         <R>
-            98
+            255
         </R>
         <G>
-            57
+            24
         </G>
         <B>
-            45
+            35
         </B>
     </High>
     <Mid>
         <R>
-            96
+            255
         </R>
         <G>
-            14
+            16
         </G>
         <B>
-            34
+            29
         </B>
     </Mid>
     <Low>
         <R>
-            41
+            47
+        </R>
+        <G>
+            67
+        </G>
+        <B>
+            90
+        </B>
+    </Low>
+    <Start>
+        0.94
+    </Start>
+    <YOffset>
+        500
+    </YOffset>
+</SimonKovesi>
+
+<ElizabethDzeng>
+    <High>
+        <R>
+            223
+        </R>
+        <G>
+            140
+        </G>
+        <B>
+            47
+        </B>
+    </High>
+    <Mid>
+        <R>
+            116
+        </R>
+        <G>
+            211
+        </G>
+        <B>
+            211
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            212
+        </R>
+        <G>
+            55
+        </G>
+        <B>
+            58
+        </B>
+    </Low>
+    <Start>
+        0.93
+    </Start>
+    <YOffset>
+        452
+    </YOffset>
+</ElizabethDzeng>
+
+<TheNaturalHistoryofPokemon>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            200
+        </G>
+        <B>
+            154
+        </B>
+    </High>
+    <Mid>
+        <R>
+            47
+        </R>
+        <G>
+            135
+        </G>
+        <B>
+            195
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            227
+        </R>
+        <G>
+            85
+        </G>
+        <B>
+            24
+        </B>
+    </Low>
+    <Start>
+        0.04
+    </Start>
+    <YOffset>
+        311
+    </YOffset>
+</TheNaturalHistoryofPokemon>
+
+<Misremeberanceofthingspast>
+    <High>
+        <R>
+            201
+        </R>
+        <G>
+            65
+        </G>
+        <B>
+            30
+        </B>
+    </High>
+    <Mid>
+        <R>
+            252
+        </R>
+        <G>
+            168
+        </G>
+        <B>
+            49
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            156
+        </R>
+        <G>
+            82
+        </G>
+        <B>
+            17
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        500
+    </YOffset>
+</Misremeberanceofthingspast>
+
+<LyndalRoperLivingIWasYourPlague>
+    <High>
+        <R>
+            73
+        </R>
+        <G>
+            120
+        </G>
+        <B>
+            220
+        </B>
+    </High>
+    <Mid>
+        <R>
+            184
+        </R>
+        <G>
+            187
+        </G>
+        <B>
+            187
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            139
+        </R>
+        <G>
+            93
+        </G>
+        <B>
+            47
+        </B>
+    </Low>
+    <Start>
+        0.06
+    </Start>
+    <YOffset>
+        253
+    </YOffset>
+</LyndalRoperLivingIWasYourPlague>
+
+<Atthefrontlinesofchange>
+    <High>
+        <R>
+            70
+        </R>
+        <G>
+            91
+        </G>
+        <B>
+            116
+        </B>
+    </High>
+    <Mid>
+        <R>
+            101
+        </R>
+        <G>
+            158
+        </G>
+        <B>
+            138
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            154
+        </R>
+        <G>
+            122
+        </G>
+        <B>
+            57
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        352
+    </YOffset>
+</Atthefrontlinesofchange>
+
+<ReligionandBeliefinBritain>
+    <High>
+        <R>
+            66
+        </R>
+        <G>
+            94
+        </G>
+        <B>
+            162
+        </B>
+    </High>
+    <Mid>
+        <R>
+            209
+        </R>
+        <G>
+            250
+        </G>
+        <B>
+            53
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            166
+        </R>
+        <G>
+            35
+        </G>
+        <B>
+            45
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        452
+    </YOffset>
+</ReligionandBeliefinBritain>
+
+<Consequentialsimforcows>
+    <High>
+        <R>
+            191
+        </R>
+        <G>
+            147
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            77
+        </R>
+        <G>
+            54
+        </G>
+        <B>
+            12
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            255
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
+</Consequentialsimforcows>
+
+<pitchersofdeath>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            255
+        </G>
+        <B>
+            255
+        </B>
+    </High>
+    <Mid>
+        <R>
+            255
+        </R>
+        <G>
+            138
+        </G>
+        <B>
+            25
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            255
+        </R>
+        <G>
+            124
+        </G>
+        <B>
+            42
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        163
+    </YOffset>
+</pitchersofdeath>
+
+<Feminineabandonandtheabducted>
+    <High>
+        <R>
+            10
+        </R>
+        <G>
+            63
+        </G>
+        <B>
+            140
+        </B>
+    </High>
+    <Mid>
+        <R>
+            151
+        </R>
+        <G>
+            90
+        </G>
+        <B>
+            62
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            201
+        </R>
+        <G>
+            119
+        </G>
+        <B>
+            61
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        406
+    </YOffset>
+</Feminineabandonandtheabducted>
+
+<TheScienceofAging>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            158
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            205
+        </R>
+        <G>
+            107
+        </G>
+        <B>
+            0
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            65
+        </R>
+        <G>
+            94
+        </G>
+        <B>
+            162
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        355
+    </YOffset>
+</TheScienceofAging>
+
+<TheChilcotReport>
+    <High>
+        <R>
+            90
+        </R>
+        <G>
+            163
+        </G>
+        <B>
+            241
+        </B>
+    </High>
+    <Mid>
+        <R>
+            237
+        </R>
+        <G>
+            170
+        </G>
+        <B>
+            123
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            95
         </R>
         <G>
             61
         </G>
         <B>
-            80
+            16
         </B>
     </Low>
-</SimonKovesi>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</TheChilcotReport>
+
+<SeanAndJonathanBrexit>
+    <High>
+        <R>
+            69
+        </R>
+        <G>
+            171
+        </G>
+        <B>
+            184
+        </B>
+    </High>
+    <Mid>
+        <R>
+            215
+        </R>
+        <G>
+            124
+        </G>
+        <B>
+            58
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            212
+        </R>
+        <G>
+            85
+        </G>
+        <B>
+            41
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</SeanAndJonathanBrexit>
+
+
+<DrJonathanLeaderMaynard>
+    <High>
+        <R>
+            180
+        </R>
+        <G>
+            168
+        </G>
+        <B>
+            111
+        </B>
+    </High>
+    <Mid>
+        <R>
+            20
+        </R>
+        <G>
+            90
+        </G>
+        <B>
+            51
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            34
+        </R>
+        <G>
+            160
+        </G>
+        <B>
+            57
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</DrJonathanLeaderMaynard>
+
+<DrLydiaGoehr>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            255
+        </G>
+        <B>
+            255
+        </B>
+    </High>
+    <Mid>
+        <R>
+            255
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            152
+        </R>
+        <G>
+            53
+        </G>
+        <B>
+            22
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</DrLydiaGoehr>
+
+
+<DrRosenboim>
+    <High>
+        <R>
+            93
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            208
+        </R>
+        <G>
+            188
+        </G>
+        <B>
+            170
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            54
+        </R>
+        <G>
+            95
+        </G>
+        <B>
+            213
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</DrRosenboim>
+
+
+<DrTobiasHeinrich>
+    <High>
+        <R>
+            93
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            208
+        </R>
+        <G>
+            188
+        </G>
+        <B>
+            170
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            54
+        </R>
+        <G>
+            95
+        </G>
+        <B>
+            213
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</DrTobiasHeinrich>
+
+
+<JulianDugnoille>
+    <High>
+        <R>
+            204
+        </R>
+        <G>
+            199
+        </G>
+        <B>
+            205
+        </B>
+    </High>
+    <Mid>
+        <R>
+            211
+        </R>
+        <G>
+            61
+        </G>
+        <B>
+            31
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            231
+        </R>
+        <G>
+            150
+        </G>
+        <B>
+            59
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        401
+    </YOffset>
+</JulianDugnoille>
+
+<LightandSirIsaacNewton>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            219
+        </G>
+        <B>
+            78
+        </B>
+    </High>
+    <Mid>
+        <R>
+            229
+        </R>
+        <G>
+            196
+        </G>
+        <B>
+            27
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            197
+        </R>
+        <G>
+            43
+        </G>
+        <B>
+            25
+        </B>
+    </Low>
+    <Start>
+        0.905
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
+</LightandSirIsaacNewton>
+
+<MikailLopatin>
+    <High>
+        <R>
+            233
+        </R>
+        <G>
+            192
+        </G>
+        <B>
+            181
+        </B>
+    </High>
+    <Mid>
+        <R>
+            103
+        </R>
+        <G>
+            176
+        </G>
+        <B>
+            66
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            53
+        </R>
+        <G>
+            86
+        </G>
+        <B>
+            38
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</MikailLopatin>
+
+<DrJossWright>
+    <High>
+        <R>
+            191
+        </R>
+        <G>
+            147
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            77
+        </R>
+        <G>
+            54
+        </G>
+        <B>
+            12
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            255
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
+</DrJossWright>
+
+<LaudanNooshin>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            255
+        </G>
+        <B>
+            255
+        </B>
+    </High>
+    <Mid>
+        <R>
+            255
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            0
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            152
+        </R>
+        <G>
+            53
+        </G>
+        <B>
+            22
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</LaudanNooshin>
+
+<ProfDavidLubin>
+    <High>
+        <R>
+            197
+        </R>
+        <G>
+            0
+        </G>
+        <B>
+            46
+        </B>
+    </High>
+    <Mid>
+        <R>
+            199
+        </R>
+        <G>
+            135
+        </G>
+        <B>
+            118
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            47
+        </R>
+        <G>
+            78
+        </G>
+        <B>
+            128
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
+</ProfDavidLubin>
+
+<ProfHomiBhabha>
+    <High>
+        <R>
+            187
+        </R>
+        <G>
+            183
+        </G>
+        <B>
+            140
+        </B>
+    </High>
+    <Mid>
+        <R>
+            126
+        </R>
+        <G>
+            124
+        </G>
+        <B>
+            101
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            39
+        </R>
+        <G>
+            39
+        </G>
+        <B>
+            39
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        401
+    </YOffset>
+</ProfHomiBhabha>
+
+<SimonSchama>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            207
+        </G>
+        <B>
+            163
+        </B>
+    </High>
+    <Mid>
+        <R>
+            54
+        </R>
+        <G>
+            142
+        </G>
+        <B>
+            199
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            255
+        </R>
+        <G>
+            98
+        </G>
+        <B>
+            34
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        390
+    </YOffset>
+</SimonSchama>
+
+<SulakJacobs>
+    <High>
+        <R>
+            87
+        </R>
+        <G>
+            167
+        </G>
+        <B>
+            151
+        </B>
+    </High>
+    <Mid>
+        <R>
+            208
+        </R>
+        <G>
+            158
+        </G>
+        <B>
+            112
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            158
+        </R>
+        <G>
+            75
+        </G>
+        <B>
+            39
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        145
+    </YOffset>
+</SulakJacobs>
+
+<TheParisClimateDeal>
+    <High>
+        <R>
+            255
+        </R>
+        <G>
+            158
+        </G>
+        <B>
+            0
+        </B>
+    </High>
+    <Mid>
+        <R>
+            205
+        </R>
+        <G>
+            107
+        </G>
+        <B>
+            0
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            66
+        </R>
+        <G>
+            94
+        </G>
+        <B>
+            162
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        250
+    </YOffset>
+</TheParisClimateDeal>
+
+<TimHarford>
+    <High>
+        <R>
+            167
+        </R>
+        <G>
+            164
+        </G>
+        <B>
+            122
+        </B>
+    </High>
+    <Mid>
+        <R>
+            104
+        </R>
+        <G>
+            98
+        </G>
+        <B>
+            81
+        </B>
+    </Mid>
+    <Low>
+        <R>
+            24
+        </R>
+        <G>
+            22
+        </G>
+        <B>
+            24
+        </B>
+    </Low>
+    <Start>
+        0
+    </Start>
+    <YOffset>
+        411
+    </YOffset>
+</TimHarford>
 
 <!--<XXX>-->
 <!--    <High>-->
@@ -465,4 +1676,5 @@
 <!--        </B>-->
 <!--    </Low>-->
 <!--</XXX>-->
+
 

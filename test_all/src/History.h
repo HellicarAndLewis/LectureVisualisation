@@ -11,5 +11,7 @@ public:
     
     ofMesh myMesh;
     
+    ofFbo buff;
+    
     int yOffset, binSize;
 };

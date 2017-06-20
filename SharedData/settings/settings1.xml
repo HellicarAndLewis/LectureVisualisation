@@ -3,11 +3,11 @@
 	<Output_On>1</Output_On>
 	<Play>1</Play>
 	<Background_Auto>0</Background_Auto>
-	<Speed>1</Speed>
-	<Scrub>0.255102</Scrub>
-	<Draw_Speed>2.95918</Draw_Speed>
-	<High>255, 255, 255, 255</High>
-	<Low>255, 255, 255, 1</Low>
+	<Speed>35</Speed>
+	<Scrub>0</Scrub>
+	<Draw_Speed>1.02041</Draw_Speed>
+	<High>255, 207, 163, 255</High>
+	<Low>255, 98, 34, 255</Low>
 	<Use_FFT>0</Use_FFT>
 	<Use_palette>0</Use_palette>
 	<Sample_Y>0</Sample_Y>
@@ -26,4 +26,48 @@
 	<sunset>0</sunset>
 	<theatre>0</theatre>
 <group/>
+<Mid>54, 142, 199, 255</Mid>
+	<Use_metadata>0</Use_metadata>
+	<Color_2_Ways>0</Color_2_Ways>
+	<Y_Offset>390</Y_Offset>
+	<DrJolley>1</DrJolley>
+	<ElizabethDzeng>1</ElizabethDzeng>
+	<ReligionandBeliefinBritain>0</ReligionandBeliefinBritain>
+	<RogerMatthews>0</RogerMatthews>
+	<SeanAndJonathanBrexit>0</SeanAndJonathanBrexit>
+	<SimonKovesi>0</SimonKovesi>
+	<TheChilcotReport>0</TheChilcotReport>
+	<TheNaturalHistoryofPokemon>0</TheNaturalHistoryofPokemon>
+	<TheScienceofAging>0</TheScienceofAging>
+<Atthefrontlinesofchange>1</Atthefrontlinesofchange>
+	<Consequentialsimforcows>1</Consequentialsimforcows>
+	<DamnedStatistics>1</DamnedStatistics>
+	<DrGorisse>1</DrGorisse>
+	<DrJonathanLeaderMaynard>1</DrJonathanLeaderMaynard>
+	<DrJossWright>1</DrJossWright>
+	<DrLydiaGoehr>1</DrLydiaGoehr>
+	<DrRosenboim>1</DrRosenboim>
+	<DrTessaWebber>1</DrTessaWebber>
+	<DrTobiasHeinrich>1</DrTobiasHeinrich>
+	<Feminineabandonandtheabducted>0</Feminineabandonandtheabducted>
+	<JoanneBegiot>1</JoanneBegiot>
+	<JulianDugnoille>1</JulianDugnoille>
+	<LaudanNooshin>1</LaudanNooshin>
+	<LightandSirIsaacNewton>1</LightandSirIsaacNewton>
+	<LyndalRoperLivingIWasYourPlague>0</LyndalRoperLivingIWasYourPlague>
+	<MagicofShakespeare>1</MagicofShakespeare>
+	<MikailLopatin>0</MikailLopatin>
+	<Misremeberanceofthingspast>0</Misremeberanceofthingspast>
+	<PatrickFarmer>0</PatrickFarmer>
+	<pitchersofdeath>0</pitchersofdeath>
+	<ProfChristianLeitmeir>0</ProfChristianLeitmeir>
+	<ProfDavidLubin>0</ProfDavidLubin>
+	<ProfEricHayot>0</ProfEricHayot>
+	<ProfHomiBhabha>0</ProfHomiBhabha>
+	<ProfJasElsner>0</ProfJasElsner>
+	<SimonSchama>1</SimonSchama>
+	<SulakJacobs>0</SulakJacobs>
+	<TheParisClimateDeal>0</TheParisClimateDeal>
+	<TimHarford>0</TimHarford>
+<ProfLaurenceBrockliss>1</ProfLaurenceBrockliss>
 </group>

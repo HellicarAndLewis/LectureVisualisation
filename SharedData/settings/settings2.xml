@@ -3,15 +3,15 @@
 	<Symmetrical>0</Symmetrical>
 	<group/>
 	<Start_Bin>0</Start_Bin>
-	<End_Bin>104</End_Bin>
+	<End_Bin>1024</End_Bin>
 	<Cut_Up>0</Cut_Up>
 	<Cut_Down>0.1</Cut_Down>
 	<Gerhard>0</Gerhard>
 	<Gerhard_Strip>0</Gerhard_Strip>
 	<Circle>0</Circle>
-	<History>0</History>
+	<History>1</History>
 	<Stream>0</Stream>
 	<Outward_Circle>0</Outward_Circle>
 <Outward_Path>0</Outward_Path>
-<Outward_Seeds>1</Outward_Seeds>
+<Outward_Seeds>0</Outward_Seeds>
 </group>
