@@ -109,9 +109,9 @@ void ofxAudioVisualApp::setup() {
     ofAddListener(spectrumGroup.parameterChangedE(), this, &ofxAudioVisualApp::onSpectrumChanged);
 
     // Set the different colours assigned to different categories
-    categoryColors["science"] = ofColor(255, 0, 0);
-    categoryColors["history"] = ofColor(206, 213, 0);
-    categoryColors["religion"] = ofColor(0, 170, 144);
+//    categoryColors["science"] = ofColor(255, 0, 0);
+//    categoryColors["history"] = ofColor(206, 213, 0);
+//    categoryColors["religion"] = ofColor(0, 170, 144);
     
     gui.add(startTime.set("Start Time", 0, 0, 1));
     gui.add(historyScale.set("History Scale", 0.5, 0, 1.5));
@@ -358,7 +358,7 @@ void ofxAudioVisualApp::keyPressed(int key) {
 void ofxAudioVisualApp::setBaseColor(){
     //Colour etc change here with clip's metadata
     //colors[currentClip]
-    string newColHigh = colors[currentClip]["High"];
+//    string newColHigh = colors[currentClip]["High"];
     
     
 //    vector<string> startTime = ofSplitString(metadata[currentClip]["time"], ":");
@@ -372,7 +372,7 @@ void ofxAudioVisualApp::setBaseColor(){
 //    // blueValue to be decided on the subject, assuming now
 //    float blueValue = 128;
 
-    baseColor = ofColor(redValue, greenValue , blueValue);
+//    baseColor = ofColor(redValue, greenValue , blueValue);
 }
 
 ofColor ofxAudioVisualApp::getColorLerp(int i) {

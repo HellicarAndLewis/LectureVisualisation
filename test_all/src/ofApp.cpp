@@ -54,24 +54,24 @@ void ofApp::draw() {
         resetting = false;
     }
     
-    if (isGerhard){
-//        gradientSampler.update(gerhard.x);
-        gerhard.draw(this, &drawBins, threshold);
-    }else if (isCircle){
-        circle.draw(this, &drawBins, threshold);
-    }else if (isHistory){
-        history.draw(this, &drawBins, threshold);
-    }else if (isGerhardStrip){
-        gStrip.draw(this, &drawBins, threshold, symmetrical);
-    }else if (isStream){
-        stream.draw(this, &drawBins, threshold);
-    }else if (isOutwardCircle){
-        outwardCircle.draw(this, &drawBins, threshold);
-    }else if (isOutwardPath){
-        outwardPath.draw(this, &drawBins, threshold);
-    }else if (isOutwardSeeds){
-        outwardSeeds.draw(this, &drawBins, threshold);
-    }
+//    if (isGerhard){
+////        gradientSampler.update(gerhard.x);
+//        gerhard.draw(this, &drawBins, threshold);
+//    }else if (isCircle){
+//        circle.draw(this, &drawBins, threshold);
+//    }else if (isHistory){
+    history.draw(this, &drawBins, threshold);
+//    }else if (isGerhardStrip){
+//        gStrip.draw(this, &drawBins, threshold, symmetrical);
+//    }else if (isStream){
+//        stream.draw(this, &drawBins, threshold);
+//    }else if (isOutwardCircle){
+//        outwardCircle.draw(this, &drawBins, threshold);
+//    }else if (isOutwardPath){
+//        outwardPath.draw(this, &drawBins, threshold);
+//    }else if (isOutwardSeeds){
+//        outwardSeeds.draw(this, &drawBins, threshold);
+//    }
 }
 
 void ofApp::keyPressed(int key) {
