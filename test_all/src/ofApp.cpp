@@ -6,24 +6,9 @@ void ofApp::setup() {
     ofxAudioVisualApp::setup();
     
 //    gradientSampler.setup();
-    
-    isGerhard.set("Gerhard", false);
-    isGerhardStrip.set("Gerhard Strip", false);
-    isCircle.set("Circle", false);
     isHistory.set("History", true);
-    isStream.set("Stream", false);
-    isOutwardCircle.set("Outward Circle", false);
-    isOutwardPath.set("Outward Path", false);
-    isOutwardSeeds.set("Outward Seeds", false);
     
-    visGroup.push_back(&isGerhard);
-    visGroup.push_back(&isGerhardStrip);
-    visGroup.push_back(&isCircle);
     visGroup.push_back(&isHistory);
-    visGroup.push_back(&isStream);
-    visGroup.push_back(&isOutwardCircle);
-    visGroup.push_back(&isOutwardPath);
-    visGroup.push_back(&isOutwardSeeds);
     
     for (auto vis : visGroup){
         visualizations.add(*vis);
@@ -61,6 +46,8 @@ void ofApp::draw() {
 //        circle.draw(this, &drawBins, threshold);
 //    }else if (isHistory){
     history.draw(this, &drawBins, threshold);
+    history.buff.draw(buffX, 0, buffWidth, ofGetHeight()); // 1500 for 8x10
+
 //    }else if (isGerhardStrip){
 //        gStrip.draw(this, &drawBins, threshold, symmetrical);
 //    }else if (isStream){

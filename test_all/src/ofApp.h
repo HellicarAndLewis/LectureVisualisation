@@ -39,14 +39,7 @@ public:
     OutwardSeeds outwardSeeds;
     
     ofParameterGroup visualizations;
-    ofParameter<bool> isGerhard;
-    ofParameter<bool> isCircle;
     ofParameter<bool> isHistory;
-    ofParameter<bool> isGerhardStrip;
-    ofParameter<bool> isStream;
-    ofParameter<bool> isOutwardCircle;
-    ofParameter<bool> isOutwardPath;
-    ofParameter<bool> isOutwardSeeds;
 
     vector< ofParameter<bool>* > visGroup;
     

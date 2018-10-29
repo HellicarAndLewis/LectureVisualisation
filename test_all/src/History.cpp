@@ -43,7 +43,6 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     }
     ofPopStyle();
     buff.end();
-    buff.draw(0, 0, 1606, ofGetHeight()); // 1500 for 8x10
 }
 
 void History::reset(){
