@@ -17,17 +17,16 @@ void History::setup(ofxFft* fft){
 void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float threshold){
     buff.begin();
     binSize = abs(app->endBin - app->startBin);
-	ofSetColor(0);
-	ofDrawRectangle(0, 0, ofGetWidth()*2, ofGetHeight()*2);
+    ofClear(0);
+    float height = ofGetHeight();
     for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize, true); i < binSize; i++, j++, j%= binSize) {
         ofVec3f vertex = myMesh.getVertex(i);
-        float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, ofGetHeight() * app->historyScale, true);
+        float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, height * app->historyScale, true);
         ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
-		myMesh.setColor(i, col);
-		myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight - app->yOffset, vertex.z));
+        myMesh.setColor(i, col);
+        myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight - app->yOffset, vertex.z));
     }
-    //cout<<app->yOffset<<endl;
-    
+
     yOffset += 10 * app->drawSpeed;
     
     myMesh.draw();

@@ -72,6 +72,8 @@ void ofApp::draw() {
 //    }else if (isOutwardSeeds){
 //        outwardSeeds.draw(this, &drawBins, threshold);
 //    }
+    
+    ofDrawBitmapStringHighlight("FPS: " + ofToString(ofGetFrameRate()), ofGetWidth() - 100, 10);
 }
 
 void ofApp::keyPressed(int key) {
