@@ -1,16 +1,7 @@
 #pragma once
 
 #include "ofxAudioVisualApp.h"
-#include "Gerhard.h"
-#include "Circle.h"
 #include "History.h"
-#include "GerhardStrip.h"
-#include "Stream.h"
-#include "OutwardCircle.h"
-#include "OutwardPath.h"
-#include "OutwardSeeds.h"
-
-//#include "util_GradientSampler.h"
 
 class ofApp : public ofxAudioVisualApp {
 public:
@@ -29,14 +20,7 @@ public:
     void guiKeyPressed(ofKeyEventArgs & args);
     void saveScreenShots(string contextName);
     
-    Gerhard gerhard;
-    Circle circle;
     History history;
-    GerhardStrip gStrip;
-    Stream stream;
-    OutwardCircle outwardCircle;
-    OutwardPath outwardPath;
-    OutwardSeeds outwardSeeds;
     
     ofParameterGroup visualizations;
     ofParameter<bool> isHistory;

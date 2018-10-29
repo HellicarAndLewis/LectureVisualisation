@@ -20,12 +20,7 @@ void ofApp::setup() {
     ofAddListener(settings.parameterChangedE(), this, &ofApp::onSettingChanged);
     
     resetting = false;
-    gerhard.setup();
     history.setup(fft);
-    stream.setup(this);
-    outwardCircle.setup(fft);
-    outwardPath.setup();
-    outwardSeeds.setup();
 }
 
 void ofApp::draw() {
@@ -146,14 +141,7 @@ void ofApp::onBinSizeChanged(ofAbstractParameter &p){
 }
 
 void ofApp::reset(){
-    gerhard.reset();
-    circle.reset();
-    gStrip.reset();
     history.reset();
-    stream.reset();
-    outwardCircle.reset();
-    outwardPath.reset();
-    outwardSeeds.reset();
     resetting = true;
 }
 
