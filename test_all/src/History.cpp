@@ -22,9 +22,10 @@ void History::draw(ofxAudioVisualApp* app, vector<float>* drawBins, float thresh
     for(int i = 0, j = app->startBin + ofMap(app->startTime, 0, 1, 0, binSize, true); i < binSize; i++, j++, j%= binSize) {
         ofVec3f vertex = myMesh.getVertex(i);
         float newHeight = ofMap(drawBins->at(j), 0.0, 0.1, 0, height * app->historyScale, true);
+        float newX = ofMap(i, 0.0, binSize, 0.0, app->meshWidth);
         ofColor col = app->getColor(j, app->soundPlayer->getPositionMS());
         myMesh.setColor(i, col);
-        myMesh.setVertex(i, ofVec3f(vertex.x, yOffset + newHeight - app->yOffset, vertex.z));
+        myMesh.setVertex(i, ofVec3f(newX, yOffset + newHeight - app->yOffset, vertex.z));
     }
 
     yOffset += 10 * app->drawSpeed;
