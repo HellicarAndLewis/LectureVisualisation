@@ -64,6 +64,9 @@ public:
     ofParameter<float> drawSpeed;
     ofParameter<float> historyScale;
     ofParameter<float> yOffset;
+    ofParameter<int> buffWidth;
+    ofParameter<int> buffX;
+    ofParameter<int> meshWidth;
     
     ofParameter<int> spectrumY;
     ofParameter<ofColor> colLow;

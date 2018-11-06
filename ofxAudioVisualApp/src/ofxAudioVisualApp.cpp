@@ -45,22 +45,6 @@ void ofxAudioVisualApp::setup() {
             clip->set(tempName[0], false);
             soundClips[tempName[0]] = soundPaths[i];
             clips.add(*clip);
-            
-            //ofColor col = ofColor(0);
-            
-            //colors[soundPaths[i]] = ofColor(0);
-            //colorSettings.getValue(")
-            // Apply metadata after this
-//            metadata[soundPaths[i]]["time"] = "14:00";
-//            metadata[soundPaths[i]]["length"] = "200";
-//            metadata[soundPaths[i]]["date"] = "20_04_2016";
-//            metadata[soundPaths[i]]["dayOfYear"] = "360";
-//            metadata[soundPaths[i]]["day"] = "Wednesday";
-//            metadata[soundPaths[i]]["maxTemp"] = "14";
-//            metadata[soundPaths[i]]["minTemp"] = "4";
-//            metadata[soundPaths[i]]["gender"] = "male";
-//            metadata[soundPaths[i]]["category"] = "science";
-
         } else {
             ofLogError("Your File name had a '.' in it which is weird..., skipping file: " + nameWithExtension);
         }
@@ -107,11 +91,6 @@ void ofxAudioVisualApp::setup() {
     gui.add(spectrumGroup);
     ofAddListener(clips.parameterChangedE(), this, &ofxAudioVisualApp::onClipChanged);
     ofAddListener(spectrumGroup.parameterChangedE(), this, &ofxAudioVisualApp::onSpectrumChanged);
-
-    // Set the different colours assigned to different categories
-//    categoryColors["science"] = ofColor(255, 0, 0);
-//    categoryColors["history"] = ofColor(206, 213, 0);
-//    categoryColors["religion"] = ofColor(0, 170, 144);
     
     gui.add(startTime.set("Start Time", 0, 0, 1));
     gui.add(historyScale.set("History Scale", 0.5, 0, 1.5));
@@ -185,6 +164,10 @@ void ofxAudioVisualApp::setupGui(){
     settings.add(useMetadata.set("Use metadata", false));
     settings.add(color2Way.set("Color 2 Ways", true));
     settings.add(yOffset.set("Y Offset", 0.0, 0.0, 500.0));
+    settings.add(buffWidth.set("buffWidth", 1606, 0, 3840));
+    settings.add(buffX.set("buffX", 0.0, 0.0, 3840));
+    settings.add(meshWidth.set("meshWidth", buffWidth, 0, 3840));
+
     
     settings.add(spectrumY.set("Sample Y", 0, 0, 100));
     
